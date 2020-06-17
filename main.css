@@ -1,0 +1,12 @@
+body {
+  background-color: grey;
+}
+
+.plateau {
+  height: 800px;
+  width: 800px;
+  border: 4px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
