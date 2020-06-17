@@ -1,7 +1,10 @@
 body {
   background-color: grey;
 }
-
+#ball{
+  height: auto;
+  width: auto;
+}
 #plateau {
   height: 800px;
   width: 800px;
@@ -15,7 +18,9 @@ body {
   position:absolute;
   height: 40px;
   width: 40px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 50%;
-  background-color: red;
+  background-image: url(ball.gif);
+  background-position: center;
+  background-size: contain;
 }
