@@ -33,24 +33,24 @@ document.onkeydown = function(event){
 		s.top = String(y)+'px';
 }
 
-var plateau = document.getElementById("centreplat");
-var uneBrique;
-
-function fabriqueBriques() {
-
-//90 brique pour un espace de 40px entre;
-
-  for (var i = 0; i < 81; i++) {
-    // fabrique une brique
-    uneBrique = document.createElement("div")
-
-    // Ajoute une classe à cette brique pour lui donner un style via CSS
-    uneBrique.className = "classBrique";
-
-    // Insére cette brique dans la div ZoneDeJeu
-    plateau.appendChild(uneBrique);
-  }
-
-}
-//  Lance la fonction
-fabriqueBriques();
+// var plateau = document.getElementById("centreplat");
+// var uneBrique;
+//
+// function fabriqueBriques() {
+//
+// //90 brique pour un espace de 40px entre;
+//
+//   for (var i = 0; i < 81; i++) {
+//     // fabrique une brique
+//     uneBrique = document.createElement("div")
+//
+//     // Ajoute une classe à cette brique pour lui donner un style via CSS
+//     uneBrique.className = "classBrique";
+//
+//     // Insére cette brique dans la div ZoneDeJeu
+//     plateau.appendChild(uneBrique);
+//   }
+//
+// }
+// //  Lance la fonction
+// fabriqueBriques();
