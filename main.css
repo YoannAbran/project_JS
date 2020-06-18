@@ -1,10 +1,7 @@
 body {
   background-color: grey;
 }
-#ball{
-  height: auto;
-  width: auto;
-}
+
 #plateau {
   height: 800px;
   width: 800px;
@@ -12,15 +9,34 @@ body {
   margin : auto;
   background-color: white;
   position: relative;
+
+
+}
+#centreplat{
+  position: absolute;
+  height: 760px;
+  width: 760px;
+  top: 40px;
+  left: 60px;
+  margin: auto;
 }
 
 #pion{
   position:absolute;
   height: 40px;
   width: 40px;
-  /* border: 2px solid black; */
+  top :0;
+  left: 0;
   border-radius: 50%;
   background-image: url(ball.gif);
   background-position: center;
   background-size: contain;
+}
+.classBrique{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  background-color: black;
 }

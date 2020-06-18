@@ -7,7 +7,7 @@ document.onkeydown = function(event){
     var event = event || window.event,
         keyCode = event.keyCode;
 
-    // On détecte l'événement puis selon la fleche, on incrémente ou décrément les variables globales de position, i et j.
+    // On détecte l'événement puis selon la fleche, on incrémente ou décrément les variables globales de position, x et y.
     switch(keyCode){
     case 38:
         y-=10;
@@ -23,16 +23,34 @@ document.onkeydown = function(event){
         break;
     }
     // Et enfin on applique les modifications :
-		// if (x<0 || y<0 || x>=761 || y>=761){
-		// 	return false;
-		// } //bug les mouvement sont pris en compte a la sortie de la zone
 
-		if (x < 0) {x = 0;}
-		if (y < 0) {y = 0;}
-		if (x > 760 ){x=760;}
-		if (y > 760 ){y=760;}
-		
+		if (x < 0) x = 0;
+		if (y < 0) y = 0;
+		if (x > 760 ) x=760;
+		if (y > 760 ) y=760;
+
 		s.left = String(x)+'px';
 		s.top = String(y)+'px';
+}
 
-		}
+var plateau = document.getElementById("centreplat");
+var uneBrique;
+
+function fabriqueBriques() {
+
+//90 brique pour un espace de 40px entre;
+
+  for (var i = 0; i < 81; i++) {
+    // fabrique une brique
+    uneBrique = document.createElement("div")
+
+    // Ajoute une classe à cette brique pour lui donner un style via CSS
+    uneBrique.className = "classBrique";
+
+    // Insére cette brique dans la div ZoneDeJeu
+    plateau.appendChild(uneBrique);
+  }
+
+}
+//  Lance la fonction
+fabriqueBriques();
