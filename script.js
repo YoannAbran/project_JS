@@ -8,8 +8,8 @@ const WINDOW_HEIGHT = V_GRID * GRID_SIZE;
 
 var pion = document.getElementById('pion'),
     s = pion.style, // Un petit raccourci
-    x = pion.offsetLeft, // On récupère la position absolue initiale.
-    y = pion.offsetTop;
+    x = 0, // On récupère la position absolue initiale.
+    y = 0;
 
 
 
@@ -19,31 +19,50 @@ plateau.style.height = WINDOW_HEIGHT;
 
 
 
-
 var blockGrid = [];
 for(var i=0 ; i < H_GRID; i++){
   blockGrid.push([]);
+
   for(var j=0 ; j < V_GRID ; j++){
+
     let block=document.createElement('div');
     block.style.width='40px';
     block.style.height='40px';
     block.style.display='flex';
     block.style.position='absolute';
 
-    if (random100()>70){ block.style.backgroundColor='black';
+    if (random100()>80 && blockGrid[0][0]){ block.style.backgroundColor='black';
     block.traverser = false;
   }
-    else {
+   else if (random100()>90 && blockGrid[0][0]) {
+     block.style.backgroundColor='red';
+     block.traverser = false;
+
+   }
+
+    else{
     block.style.backgroundColor='white';
     block.traverser = true;
   }
     block.style.marginLeft = (i * GRID_SIZE).toString()+'px';
     block.style.marginTop = (j * GRID_SIZE).toString()+'px';
 
-    document.getElementById("plateau").appendChild(block);
+    document.getElementById("plateau").appendChild(block );
     blockGrid[i].push(block);
   }
 }
+const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
+//
+const foe = document.querySelector('#foe'),
+fs = foe.style, // Un petit raccourci
+fx = 0, // On récupère la position absolue initiale.
+fy = 0;
+setInterval(() => {
+  fs.left = String(fx*GRID_SIZE)+'px';
+  fs.top = String(fy*GRID_SIZE)+'px'; //👈🏼 Vertically
+
+}, 500); // every 1/2 second
+
 document.onkeydown = function(event){
     var event = event || window.event,
         keyCode = event.keyCode;
@@ -51,28 +70,29 @@ document.onkeydown = function(event){
     // On détecte l'événement puis selon la fleche, on incrémente ou décrément les variables globales de position, x et y.
     switch(keyCode){
     case 38:
-        y-=GRID_SIZE;
+    if(y > 0 && blockGrid[x][y - 1].traverser)
+        y--;
         break;
     case 40:
-        y+=GRID_SIZE;
+    if(y < V_GRID-1 && blockGrid [x ][y + 1].traverser)
+        y++;
         break;
     case 37:
-        x-=GRID_SIZE;
+    if(x > 0 && blockGrid [x  - 1][y].traverser)
+        x--;
         break;
     case 39:
-        x+=GRID_SIZE;
+    if(x < H_GRID-1 && blockGrid [x  + 1][y].traverser)
+        x++;
         break;
     }
-    // Et enfin on applique les modifications :
+    // Et enfin on applique les modifications :;
 
-		if (x < 0) x = 0;
-		if (y < 0) y = 0;
-		if (x > WINDOW_WIDTH-GRID_SIZE && blockGrid[y/GRID_SIZE][x/GRID_SIZE].traverser ) x=760;
-		if (y > 760 ) y=760;
 
-		s.left = String(x)+'px';
-		s.top = String(y)+'px';
+		s.left = String(x*GRID_SIZE)+'px';
+		s.top = String(y*GRID_SIZE)+'px';
 }
+
 function randomColor(){
 return "#" + ((1<<24)*Math.random()|0).toString(16);
 }

@@ -1,65 +1,33 @@
-// const H_GRID = 20;
-// const V_GRID = 20;
-// const GRID_SIZE = 40;
-// const WINDOW_WIDTH = H_GRID * GRID_SIZE;
-// const WINDOW_HEIGHT = V_GRID * GRID_SIZE;
+const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
 //
-// var plateau = document.getElementById('plateau');
-// plateau.style.width = WINDOW_WIDTH;
-// plateau.style.height = WINDOW_HEIGHT;
-//
-//
-//
-//
-// var blockGrid = [];
-// for(var i=0 ; i < H_GRID; i++){
-//   blockGrid.push([]);
-//   for(var j=0 ; j < V_GRID ; j++){
-//     let block=document.createElement('div');
-//     block.style.width='40px';
-//     block.style.height='40px';
-//     block.style.display='flex';
-//     block.style.position='absolute';
-//
-//     if (random100()>70){ block.style.backgroundColor='black';
-//     block.traverser = false;
-//   }
-//     else {
-//     block.style.backgroundColor='white';
-//     block.traverser = true;
-//   }
-//     block.style.marginLeft = (i * GRID_SIZE).toString()+'px';
-//     block.style.marginTop = (j * GRID_SIZE).toString()+'px';
-//
-//     document.getElementById("plateau").appendChild(block);
-//     blockGrid[i].push(block);
-//   }
-// }
-//
-// function randomColor(){
-// return "#" + ((1<<24)*Math.random()|0).toString(16);
-// }
-// function random100() {
-// return Math.floor(Math.random() * 100);
-// }
-// var plateau = document.getElementById("centreplat");
-// var uneBrique;
-//
-// function fabriqueBriques() {
-//
-// //90 brique pour un espace de 40px entre;
-//
-//   for (var i = 0; i < 81; i++) {
-//     // fabrique une brique
-//     uneBrique = document.createElement("div")
-//
-//     // Ajoute une classe à cette brique pour lui donner un style via CSS
-//     uneBrique.className = "classBrique";
-//
-//     // Insére cette brique dans la div ZoneDeJeu
-//     plateau.appendChild(uneBrique);
-//   }
-//
-// }
-// //  Lance la fonction
-// fabriqueBriques();
+const foe = document.querySelector('#foe'),
+fs = foe.style, // Un petit raccourci
+fx = 0, // On récupère la position absolue initiale.
+fy = 0;
+
+setInterval(() => {
+   fs.left= getRandom(0, 800-40)+'px'; // 👈🏼 Horizontally
+   fs.top = getRandom(0, 800-40)+'px'; // 👈🏼 Vertically
+
+}, 500); // every 1/2 second
+
+switch(){
+case 0:
+if(fy > 0 && blockGrid[fx][fy - 1].traverser)
+    fy--;
+    break;
+case 1:
+if(fy < V_GRID-1 && blockGrid [fx ][fy + 1].traverser)
+    fy++;
+    break;
+case 2:
+if(fx > 0 && blockGrid [fx  - 1][fy].traverser)
+    fx--;
+    break;
+case 3:
+if(fx < H_GRID-1 && blockGrid [fx  + 1][fy].traverser)
+    fx++;
+    break;
+}
+fs.left = String(x*GRID_SIZE)+'px';
+fs.top = String(y*GRID_SIZE)+'px';

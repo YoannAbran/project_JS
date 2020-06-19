@@ -21,7 +21,15 @@ body {
   left: 60px;
   margin: auto;
 } */
-
+#foe{
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top :760px;
+  left: 760px;
+  background-color: aqua;
+  z-index: 1;
+}
 #pion{
   position:absolute;
   height: 40px;
