@@ -4,7 +4,7 @@ const V_GRID = 20;
 const GRID_SIZE = 40;
 const WINDOW_WIDTH = H_GRID * GRID_SIZE;
 const WINDOW_HEIGHT = V_GRID * GRID_SIZE;
-
+const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
 
 var pion = document.getElementById('pion'),
     s = pion.style, // Un petit raccourci
@@ -31,37 +31,67 @@ for(var i=0 ; i < H_GRID; i++){
     block.style.display='flex';
     block.style.position='absolute';
 
-    if (random100()>80 && blockGrid[0][0]){ block.style.backgroundColor='black';
-    block.traverser = false;
+    if (random100()>80 && blockGrid[0][0]){
+      block.style.backgroundImage='url(mur2.png)';
+      block.style.backgroundSize='contain'
+      block.traverser = false;
   }
    else if (random100()>90 && blockGrid[0][0]) {
-     block.style.backgroundColor='red';
+     block.style.backgroundImage='url(mur1.png)';
+     block.style.backgroundSize='contain'
      block.traverser = false;
 
    }
 
-    else{
-    block.style.backgroundColor='white';
+  else {
+    block.style.backgroundImage='url(sol.png)';
+    block.style.backgroundSize='contain'
     block.traverser = true;
   }
     block.style.marginLeft = (i * GRID_SIZE).toString()+'px';
     block.style.marginTop = (j * GRID_SIZE).toString()+'px';
 
+
     document.getElementById("plateau").appendChild(block );
     blockGrid[i].push(block);
   }
 }
-const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
-//
-const foe = document.querySelector('#foe'),
-fs = foe.style, // Un petit raccourci
-fx = 0, // On récupère la position absolue initiale.
-fy = 0;
-setInterval(() => {
-  fs.left = String(fx*GRID_SIZE)+'px';
-  fs.top = String(fy*GRID_SIZE)+'px'; //👈🏼 Vertically
 
-}, 500); // every 1/2 second
+
+// //
+const foe = document.querySelector('#foe');
+// fs = foe.style, // Un petit raccourci
+// fx = 0, // On récupère la position absolue initiale.
+// fy = 0;
+
+setInterval(() => {
+  var fs = foe.style, // Un petit raccourci
+  fx = 10, // On récupère la position absolue initiale.
+  fy = 10;
+
+  if (Math.floor(Math.random() * 8)){
+
+   if(fy > 0 && blockGrid[fx][fy - 1].traverser)
+      fy--;
+
+
+else if(fy < V_GRID-1 && blockGrid [fx ][fy + 1].traverser)
+      fy++;
+
+
+  else if(fx > 0 && blockGrid [fx  - 1][fy].traverser)
+      fx--;
+
+
+  else if(fx < H_GRID-1 && blockGrid [fx  + 1][fy].traverser)
+      fx++;
+
+  }
+  fs.left = String(fx*GRID_SIZE)+'px';
+  fs.top = String(fy*GRID_SIZE)+'px';
+
+
+}, 50); // every 1/2 second
 
 document.onkeydown = function(event){
     var event = event || window.event,
