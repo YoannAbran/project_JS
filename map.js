@@ -1,3 +1,4 @@
+const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
 const foe = document.querySelector('#foe');
 // fs = foe.style, // Un petit raccourci
 // fx = 0, // On récupère la position absolue initiale.

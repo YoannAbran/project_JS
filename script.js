@@ -4,7 +4,7 @@ const V_GRID = 20;
 const GRID_SIZE = 40;
 const WINDOW_WIDTH = H_GRID * GRID_SIZE;
 const WINDOW_HEIGHT = V_GRID * GRID_SIZE;
-const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
+
 
 var pion = document.getElementById('pion'),
     s = pion.style, // Un petit raccourci
@@ -58,40 +58,40 @@ for(var i=0 ; i < H_GRID; i++){
 }
 
 
-// //
-const foe = document.querySelector('#foe');
-// fs = foe.style, // Un petit raccourci
-// fx = 0, // On récupère la position absolue initiale.
-// fy = 0;
-
-setInterval(() => {
-  var fs = foe.style, // Un petit raccourci
-  fx = 10, // On récupère la position absolue initiale.
-  fy = 10;
-
-  if (Math.floor(Math.random() * 8)){
-
-   if(fy > 0 && blockGrid[fx][fy - 1].traverser)
-      fy--;
-
-
-else if(fy < V_GRID-1 && blockGrid [fx ][fy + 1].traverser)
-      fy++;
-
-
-  else if(fx > 0 && blockGrid [fx  - 1][fy].traverser)
-      fx--;
-
-
-  else if(fx < H_GRID-1 && blockGrid [fx  + 1][fy].traverser)
-      fx++;
-
-  }
-  fs.left = String(fx*GRID_SIZE)+'px';
-  fs.top = String(fy*GRID_SIZE)+'px';
-
-
-}, 50); // every 1/2 second
+// // //
+// const foe = document.querySelector('#foe');
+// // fs = foe.style, // Un petit raccourci
+// // fx = 0, // On récupère la position absolue initiale.
+// // fy = 0;
+//
+// setInterval(() => {
+//   var fs = foe.style, // Un petit raccourci
+//   fx = 10, // On récupère la position absolue initiale.
+//   fy = 10;
+//
+//   if (Math.floor(Math.random() * 8)){
+//
+//    if(fy > 0 && blockGrid[fx][fy - 1].traverser)
+//       fy--;
+//
+//
+// else if(fy < V_GRID-1 && blockGrid [fx ][fy + 1].traverser)
+//       fy++;
+//
+//
+//   else if(fx > 0 && blockGrid [fx  - 1][fy].traverser)
+//       fx--;
+//
+//
+//   else if(fx < H_GRID-1 && blockGrid [fx  + 1][fy].traverser)
+//       fx++;
+//
+//   }
+//   fs.left = String(fx*GRID_SIZE)+'px';
+//   fs.top = String(fy*GRID_SIZE)+'px';
+//
+//
+// }, 50); // every 1/2 second
 
 document.onkeydown = function(event){
     var event = event || window.event,
@@ -99,22 +99,34 @@ document.onkeydown = function(event){
 
     // On détecte l'événement puis selon la fleche, on incrémente ou décrément les variables globales de position, x et y.
     switch(keyCode){
+
     case 38:
     if(y > 0 && blockGrid[x][y - 1].traverser)
         y--;
+        startAnimationhaut();
         break;
+        
+
     case 40:
     if(y < V_GRID-1 && blockGrid [x ][y + 1].traverser)
         y++;
+        startAnimationbas();
         break;
+
+
     case 37:
     if(x > 0 && blockGrid [x  - 1][y].traverser)
         x--;
+        startAnimationdroite();
         break;
+
+
     case 39:
     if(x < H_GRID-1 && blockGrid [x  + 1][y].traverser)
         x++;
+        startAnimationgauche();
         break;
+
     }
     // Et enfin on applique les modifications :;
 

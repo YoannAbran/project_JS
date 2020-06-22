@@ -36,10 +36,10 @@ body {
   width: 40px;
   top :0;
   left: 0;
-  border-radius: 50%;
-  background-image: url(ball.gif);
-  background-position: center;
-  background-size: contain;
+  /* border-radius: 50%; */
+  background-image: url(player.png);
+  /* background-position: center; */
+
   z-index: 1;
 }
 /* .classBrique{
