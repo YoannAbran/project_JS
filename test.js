@@ -116,3 +116,31 @@ function loop() {
 }
 // 60 x / seconde
 window.requestAnimationFrame(loop)
+
+////////////////animation ventil/////////////////////////////
+const VENTILATION = document.querySelectorAll('.feuBrasero');
+
+// Un tableau qui va contenir toutes les images dans l'ordre
+let ventil = [];
+ventil.push("url('mur2.png')");
+ventil.push("url('mur3.png')");
+
+let venti = 0;
+
+function changerImageVenti(){
+
+    if (venti < ventil.length) {
+      VENTILATION.forEach(element => {
+        element.style.backgroundImage = ventil[venti]});
+      venti++;
+    }
+    else {
+      venti = 0;
+    }
+  window.setTimeout("changerImageVenti()", 75)
+}
+
+// Charge la fonction
+window.onload = function(){
+changerImageVenti();
+}

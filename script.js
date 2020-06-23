@@ -10,12 +10,24 @@ var pion = document.getElementById('pion'),
   x = pion.offsetLeft, // On récupère la position absolue initiale.
   y = pion.offsetTop;
 
-var foe = document.getElementById('foe'),
-  fs = foe.style,
-  fX = foe.offsetLeft,
-  fY = foe.offsetTop,
-  direction = "right";
+// var foe = document.getElementById('foe'),
+//   fs = foe.style,
+//   fX = foe.offsetLeft,
+//   fY = foe.offsetTop,
+//   direction = "right";
 
+var foe = document.createElement('div');
+fs = foe.style;
+fs.width = '40px';
+fs.height = '40px';
+fs.display = 'flex';
+fs.position = 'absolute';
+fs.backgroundColor='aqua';
+fs.zIndex ='1';
+fX = foe.offsetLeft;
+fY = foe.offsetTop;
+direction = "right";
+document.getElementById("plateau").appendChild(foe);
 
 var plateau = document.getElementById('plateau');
 plateau.style.width = WINDOW_WIDTH;
@@ -32,21 +44,20 @@ for (var i = 0; i < H_GRID; i++) {
     block.style.width = '40px';
     block.style.height = '40px';
     block.style.display = 'flex';
+    block.style.backgroundSize = 'contain';
     block.style.position = 'absolute';
 
     if (random100() > 80 ) {
-      block.style.backgroundImage = 'url(mur2.png)';
-      block.style.backgroundSize = 'contain'
+      block.className = "ventilation";
       block.traverser = false;
 
     } else if (random100() > 90 ) {
       block.style.backgroundImage = 'url(mur1.png)';
-      block.style.backgroundSize = 'contain'
       block.traverser = false;
+    }
 
-    } else {
+ else {
       block.style.backgroundImage = 'url(sol.png)';
-      block.style.backgroundSize = 'contain'
       block.traverser = true;
     }
 
@@ -56,6 +67,9 @@ for (var i = 0; i < H_GRID; i++) {
 
     document.getElementById("plateau").appendChild(block);
     blockGrid[i].push(block);
+
+
+
   }
 }
 
@@ -67,13 +81,14 @@ blockGrid[0][1].style.backgroundImage = 'url("sol.png")';
 blockGrid[0][1].traverser = true;
 blockGrid[H_GRID - 1][1].style.backgroundImage = 'url("sol.png")';
 blockGrid[H_GRID - 1][1].traverser = true;
+// document.getElementById("plateau").appendChild(foe);
 
 // // //
 //mouvement random enemy
 var frame = 0;
 
 function loop() {
-  if (frame === 60) {
+  if (frame === 30) {
     switch (direction) {
       // Up
       case "left":
@@ -124,7 +139,7 @@ function loop() {
   window.requestAnimationFrame(loop);
 }
 // 60 x / seconde
-window.requestAnimationFrame(loop)
+window.requestAnimationFrame(loop);
 
 
 document.onkeydown = function(event) {
@@ -136,32 +151,32 @@ document.onkeydown = function(event) {
 
     case 38:
       if (y > 0 && blockGrid[x][y - 1].traverser)
-        stopAnimation();
       y--;
+      stopAnimation();
       startAnimationhaut();
       break;
 
 
     case 40:
       if (y < V_GRID - 1 && blockGrid[x][y + 1].traverser)
-        stopAnimation();
       y++;
+      stopAnimation();
       startAnimationbas();
       break;
 
 
     case 37:
       if (x > 0 && blockGrid[x - 1][y].traverser)
-        stopAnimation();
       x--;
+      stopAnimation();
       startAnimationdroite();
       break;
 
 
     case 39:
       if (x < H_GRID - 1 && blockGrid[x + 1][y].traverser)
-        stopAnimation();
       x++;
+      stopAnimation();
       startAnimationgauche();
       break;
 
