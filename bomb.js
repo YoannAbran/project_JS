@@ -13,7 +13,7 @@ function creatBomb(){
 
       document.getElementById("plateau").appendChild(bomb);
 
-      setTimeout(disparitionBomb, 2000);
+      setTimeout(disparitionBomb, 1000);
       }
   }
 

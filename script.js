@@ -53,7 +53,7 @@ for (var i = 0; i < H_GRID; i++) {
     block.style.marginTop = (j * GRID_SIZE).toString() + 'px';
 
   ;
-    document.getElementById("plateau").appendChild(foe);
+    // document.getElementById("plateau").appendChild(foe);
     document.getElementById("plateau").appendChild(block);
     blockGrid[i].push(block);
 
@@ -92,7 +92,7 @@ document.onkeydown = function(event) {
     case 40:
       if (y < V_GRID - 1 && blockGrid[x][y + 1].traverser)
       y++;
-      stopAnimation();
+
       startAnimationbas();
       break;
 
@@ -100,7 +100,7 @@ document.onkeydown = function(event) {
     case 37:
       if (x > 0 && blockGrid[x - 1][y].traverser)
       x--;
-      stopAnimation();
+
       startAnimationdroite();
       break;
 
@@ -108,7 +108,7 @@ document.onkeydown = function(event) {
     case 39:
       if (x < H_GRID - 1 && blockGrid[x + 1][y].traverser)
       x++;
-      stopAnimation();
+
       startAnimationgauche();
       break;
 
