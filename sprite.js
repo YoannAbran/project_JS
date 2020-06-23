@@ -44,7 +44,7 @@ function startAnimationhaut() {
     //reset the position to show first sprite after the last one
   }, speed);
 }
-stopAnimation();
+
 
 function startAnimationgauche() {
   var position = widthOfEachSprite; //start position for the image

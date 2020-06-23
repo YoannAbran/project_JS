@@ -3,35 +3,40 @@ const foe = document.querySelector('#foe');
 // fs = foe.style, // Un petit raccourci
 // fx = 0, // On récupère la position absolue initiale.
 // fy = 0;
+// var foe = document.getElementById('foe'),
+//   fs = foe.style,
+//   fX = foe.offsetLeft,
+//   fY = foe.offsetTop,
+//   direction = "right";
 
-setInterval(() => {
-  var fs = foe.style, // Un petit raccourci
-  fx = 10, // On récupère la position absolue initiale.
-  fy = 10;
-
-  if (Math.floor(Math.random() * 8)){
-
-   if(fy > 0 && blockGrid[fx][fy - 1].traverser)
-      fy--;
-
-
-else if(fy < V_GRID-1 && blockGrid [fx ][fy + 1].traverser)
-      fy++;
-
-
-  else if(fx > 0 && blockGrid [fx  - 1][fy].traverser)
-      fx--;
-
-
-  else if(fx < H_GRID-1 && blockGrid [fx  + 1][fy].traverser)
-      fx++;
-
-  }
-  fs.left = String(fx*GRID_SIZE)+'px';
-  fs.top = String(fy*GRID_SIZE)+'px';
-
-
-}, 50); // every 1/2 second
+// setInterval(() => {
+//   var fs = foe.style, // Un petit raccourci
+//   fx = 10, // On récupère la position absolue initiale.
+//   fy = 10;
+//
+//   if (Math.floor(Math.random() * 8)){
+//
+//    if(fy > 0 && blockGrid[fx][fy - 1].traverser)
+//       fy--;
+//
+//
+// else if(fy < V_GRID-1 && blockGrid [fx ][fy + 1].traverser)
+//       fy++;
+//
+//
+//   else if(fx > 0 && blockGrid [fx  - 1][fy].traverser)
+//       fx--;
+//
+//
+//   else if(fx < H_GRID-1 && blockGrid [fx  + 1][fy].traverser)
+//       fx++;
+//
+//   }
+//   fs.left = String(fx*GRID_SIZE)+'px';
+//   fs.top = String(fy*GRID_SIZE)+'px';
+//
+//
+// }, 50); // every 1/2 second
 
 // const foe = document.querySelector('#foe'),
 // fs = foe.style, // Un petit raccourci
@@ -50,7 +55,7 @@ var foe = document.getElementById('foe'),
         direction = "right";
 
     //laisser libre les bloc proche du joueur
-    blockGrid[0][0].style.backgroundImage = 'url("sol.png")';
+blockGrid[0][0].style.backgroundImage = 'url("sol.png")';
 blockGrid[0][0].traverser = true;
 blockGrid[1][0].style.backgroundImage = 'url("sol.png")';
 blockGrid[1][0].traverser = true;
@@ -144,3 +149,4 @@ function changerImageVenti(){
 window.onload = function(){
 changerImageVenti();
 }
+//keycode 32 espace

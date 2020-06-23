@@ -1,28 +1,28 @@
-const VENTILATION = document.querySelectorAll('.ventilation');
+const EAU = document.querySelectorAll('.eau');
 
-let ventil = [];
+let water = [];
 
-ventil.push("url('water1.png')");
-ventil.push("url('water2.png')");
-ventil.push("url('water3.png')");
-ventil.push("url('water1.png')");
+water.push("url('img/water1.png')");
+water.push("url('img/water2.png')");
+water.push("url('img/water3.png')");
+water.push("url('img/water1.png')");
 
-let venti = 0;
+let wat = 0;
 
-function changerImageVenti(){
+function changerImageEau(){
 
-    if (venti < ventil.length) {
-      VENTILATION.forEach(element => {
-        element.style.backgroundImage = ventil[venti]});
-      venti++;
+    if (wat < water.length) {
+      EAU.forEach(element => {
+        element.style.backgroundImage = water[wat]});
+      wat++;
     }
     else {
-      venti = 0;
+      wat = 0;
     }
-  window.setTimeout("changerImageVenti()", 75)
+  window.setTimeout("changerImageEau()", 75)
 }
 
 // Charge la fonction
 window.onload = function(){
-changerImageVenti();
+changerImageEau();
 }
