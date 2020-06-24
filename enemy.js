@@ -3,11 +3,11 @@
 //
 // let solFoe = [];
 //
-// console.log(SOL);
+// // console.log(SOL);
 //
-// for (var i = 15; i < H_GRID; i++) {
+// for (var i = 0; i < 5; i++) {
 // solFoe.push([]);
-// for (var j = 15; j < V_GRID; j++){
+// for (var j = 0; j <5; j++){
 //   let foe = document.createElement('div');
 // foe.id= "foe"+ String(i);
 //   fs = foe.style;
@@ -33,23 +33,23 @@
 // }
 //   }
 
-for (var i = 0; i <5; i++) {
-
-let foe = document.createElement('div');
-// foe.id= "foe"+ String(i);
-fs = foe.style;
-fs.width = GRID_SIZE +'px';
-fs.height = GRID_SIZE +'px';
-fs.position = 'absolute';
-fs.zIndex ='1';
-fs.backgroundColor='aqua'
-fX = foe.offsetLeft;
-fY = foe.offsetTop;
-direction = "right";
-document.getElementById("plateau").appendChild(foe);
-
-console.log(foe);
-}
+// for (var i = 0; i <5; i++) {
+//
+// let foe = document.createElement('div');
+// // foe.id= "foe"+ String(i);
+// fs = foe.style;
+// fs.width = GRID_SIZE +'px';
+// fs.height = GRID_SIZE +'px';
+// fs.position = 'absolute';
+// fs.zIndex ='1';
+// fs.backgroundColor='aqua'
+// fX = foe.offsetLeft;
+// fY = foe.offsetTop;
+// direction = "right";
+// document.getElementById("plateau").appendChild(foe);
+//
+// console.log(foe);
+// }
 
 
   // var frame = 0; //method window.requestAnimationFrame
@@ -84,8 +84,8 @@ console.log(foe);
           break;
       }
 
-      fs.left = String(fX * GRID_SIZE ) + 'px';
-      fs.top = String(fY * GRID_SIZE ) + 'px';
+      fs.marginLeft = String(fX * GRID_SIZE ) + 'px';
+      fs.marginTop = String(fY * GRID_SIZE ) + 'px';
 
       let random = random100();
       if (random < 25) {
@@ -99,6 +99,7 @@ console.log(foe);
       }
       if (random > 75) {
         direction = "down";
+        console.log(setInterval);
       }
     }, 100);
 

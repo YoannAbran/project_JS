@@ -162,3 +162,65 @@ function getRandomNumber(min, max) {
   return Math.random() * (max - min) + min;
 
 }
+//test mouvement enemy avec le blockGridfunction movementfoe(){
+
+const FOE = document.querySelectorAll('.foe');
+
+console.log(FOE);
+
+
+
+
+
+
+// moveFoe.forEach(setInterval())
+function movementfoe(){
+  FOE.forEach(foe => {
+
+
+
+setInterval(() => {   //method setInterval
+    switch (direction) {
+      // left
+      case "left":
+        if (fY > 0 && blockGrid[fX][fY - 1].traverser)
+          fY--; // ou y-=40;
+        break;
+        // right
+      case "right":
+        if (fX < H_GRID - 1 && blockGrid[fX + 1][fY].traverser)
+          fX++;
+        break;
+        // up
+      case "up":
+        if (fY < V_GRID - 1 && blockGrid[fX][fY + 1].traverser)
+          fY++;
+        break;
+        // down
+      case "down":
+        if (fX > 0 && blockGrid[fX - 1][fY].traverser)
+          fX--;
+        break;
+    }
+
+    fs.marginLeft = String(fX * GRID_SIZE ) + 'px';
+    fs.marginTop = String(fY * GRID_SIZE ) + 'px';
+
+    let random = random100();
+    if (random < 25) {
+      direction = "left";
+    }
+    if (random >= 25 && random < 50) {
+      direction = "right";
+    }
+    if (random >= 50 && random < 75) {
+      direction = "up";
+    }
+    if (random > 75) {
+      direction = "down";
+      console.log(setInterval);
+    }
+  }, 100);
+  });
+movementfoe();
+}
