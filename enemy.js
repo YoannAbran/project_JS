@@ -1,56 +1,23 @@
-function random10() {
-  return Math.floor(Math.random() * 10);
-}
 
 
-// function createFoe() {
-// var foe = document.createElement('div');
-// fs = foe.style;
-// fs.width = '40px';
-// fs.height = '40px';
-// fs.position = 'absolute';
-// fs.backgroundColor='aqua';
-// fs.zIndex ='1';
-// fX = foe.offsetLeft;
-// fY = foe.offsetTop;
-// direction = "right";
-// document.getElementById("plateau").appendChild(foe);
-// }
-function getRandomNumber(min, max) {
+var foe = document.createElement('div');
+fs = foe.style;
+fs.width = GRID_SIZE +'px';
+fs.height = GRID_SIZE +'px';
+fs.position = 'absolute';
+fs.zIndex ='1';
+fs.backgroundColor='aqua';
+foe.traverser = false;
+fX = foe.offsetLeft;
+fY = foe.offsetTop;
+direction = "right";
 
-  return Math.floor(Math.random() * (max - min)) + min;
-
-}
-
-// for (var i = 0; i < 5; i++){
-
-  var foe = document.createElement('div');
-  fs = foe.style;
-  fs.width = '40px';
-  fs.height = '40px';
-  fs.position = 'absolute';
-  fX = foe.offsetLeft;
-  fY = foe.offsetTop;
-  fs.backgroundColor='aqua';
-  fs.zIndex ='1';
-  direction = "right";
-  fs.traverser= false;
-
-  randomTop = getRandomNumber(41,760 );
-  randomLeft = getRandomNumber(41,760);
-
-
-    fs.marginLeft = randomTop +'px';
-    fs.marginTop = randomLeft +'px';
-
-    document.getElementById("plateau").appendChild(foe);
-
-// }
-
+document.getElementById("plateau").appendChild(foe);
 
 
   var frame = 0;
   function loop() {
+
     if (frame === 15) {
       switch (direction) {
         // Up
@@ -74,8 +41,11 @@ function getRandomNumber(min, max) {
             fX--;
           break;
       }
+
+
       fs.left = String(fX * GRID_SIZE) + 'px';
       fs.top = String(fY * GRID_SIZE) + 'px';
+
       let random = random100();
       if (random < 25) {
         direction = "left";
@@ -93,6 +63,8 @@ function getRandomNumber(min, max) {
     }
     frame++;
     window.requestAnimationFrame(loop);
+    console.log(loop);
+    
   }
   // 60 x / seconde
-  window.requestAnimationFrame(loop);
+window.requestAnimationFrame(loop);
