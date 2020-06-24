@@ -39,6 +39,7 @@ for (var i = 0; i < H_GRID; i++) {
 
  else {
       block.style.backgroundImage = 'url(img/sol.png)';
+      block.className = 'sol';
       block.traverser = true;
     }
 
@@ -51,15 +52,7 @@ for (var i = 0; i < H_GRID; i++) {
   }
 }
 
-
-
-
-
-
-
-// // //
-
-
+// // //mouvement joueur
 
 document.onkeydown = function(event) {
   var event = event || window.event,
@@ -71,7 +64,6 @@ document.onkeydown = function(event) {
     case 38:
       if (y > 0 && blockGrid[x][y - 1].traverser)
       y--;
-      stopAnimation();
       startAnimationhaut();
       break;
 
@@ -79,7 +71,6 @@ document.onkeydown = function(event) {
     case 40:
       if (y < V_GRID - 1 && blockGrid[x][y + 1].traverser)
       y++;
-
       startAnimationbas();
       break;
 
@@ -87,7 +78,6 @@ document.onkeydown = function(event) {
     case 37:
       if (x > 0 && blockGrid[x - 1][y].traverser)
       x--;
-
       startAnimationdroite();
       break;
 
@@ -95,7 +85,6 @@ document.onkeydown = function(event) {
     case 39:
       if (x < H_GRID - 1 && blockGrid[x + 1][y].traverser)
       x++;
-
       startAnimationgauche();
       break;
 

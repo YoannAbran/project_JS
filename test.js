@@ -150,6 +150,7 @@ window.onload = function(){
 changerImageVenti();
 }
 //keycode 32 espace
+
 // randomTop = getRandomNumber(GRID_SIZE,WINDOW_WIDTH);
 // randomLeft = getRandomNumber(GRID_SIZE,WINDOW_HEIGHT);
 // //
