@@ -21,15 +21,13 @@ for (var i = 0; i < H_GRID; i++) {
 
   for (var j = 0; j < V_GRID; j++) {
 
-    var foe = document.createElement('div');
-
-    fs = foe.style;
-    fs.width = GRID_SIZE +'px';
-    fs.height = GRID_SIZE +'px';
-    fs.position = 'absolute';
-    fs.zIndex ='1';
-
-    direction = "right";
+    // var foe = document.createElement('div');
+    // fs = foe.style;
+    // fs.width = GRID_SIZE +'px';
+    // fs.height = GRID_SIZE +'px';
+    // fs.position = 'absolute';
+    // fs.zIndex ='1';
+    // direction = "right";
 
     let block = document.createElement('div');
     block.style.width = '40px';
@@ -46,12 +44,12 @@ for (var i = 0; i < H_GRID; i++) {
       block.style.backgroundImage = 'url(img/mur1.png)';
       block.traverser = false;
 }
-    else if (random100() > 98 && blockGrid[0][0]) {
-      fs.backgroundColor='aqua';
-      foe.className = 'foe';
-      foe.traverser = false;
-      console.log(foe);
-    }
+    // else if (random100() > 98 && blockGrid[0][0]) {
+    //   fs.backgroundColor='aqua';
+    //   foe.className = 'foe';
+    //   foe.traverser = false;
+    //   console.log(foe);
+    // }
 
  else {
       block.style.backgroundImage = 'url(img/sol.png)';
@@ -62,12 +60,12 @@ for (var i = 0; i < H_GRID; i++) {
     block.style.marginLeft = (i * GRID_SIZE).toString() + 'px';
     block.style.marginTop = (j * GRID_SIZE).toString() + 'px';
 
-    fs.marginTop = (j * GRID_SIZE).toString() + 'px';
-    fs.marginLeft = (i * GRID_SIZE).toString() + 'px';
+    // fs.marginTop = (j * GRID_SIZE).toString() + 'px';
+    // fs.marginLeft = (i * GRID_SIZE).toString() + 'px';
 
 
 
-    document.getElementById("plateau").appendChild(foe);
+    // document.getElementById("plateau").appendChild(foe);
       // blockGrid[i].push(foe);
     document.getElementById("plateau").appendChild(block);
     blockGrid[i].push(block);
