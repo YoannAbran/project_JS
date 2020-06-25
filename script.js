@@ -46,11 +46,10 @@ for (var i = 0; i < H_GRID; i++) {
       block.style.backgroundImage = 'url(img/mur1.png)';
       block.traverser = false;
 }
-    else if (random100() > 95 && blockGrid[0][0]) {
+    else if (random100() > 98 && blockGrid[0][0]) {
       fs.backgroundColor='aqua';
       foe.className = 'foe';
-      fX = foe.offsetLeft;
-      fY = foe.offsetTop;
+      foe.traverser = false;
       console.log(foe);
     }
 
@@ -69,85 +68,12 @@ for (var i = 0; i < H_GRID; i++) {
 
 
     document.getElementById("plateau").appendChild(foe);
-      blockGrid[i].push(foe);
+      // blockGrid[i].push(foe);
     document.getElementById("plateau").appendChild(block);
     blockGrid[i].push(block);
 
   }
 }
-const FOE = document.querySelectorAll('.foe');
-
-console.log(FOE);
-
-
-
-
-
-
-// moveFoe.forEach(setInterval())
-
-
-     var frame = 0; //method window.requestAnimationFrame
-
-    function loop() {
-
-
-      if (frame === 60) {
-
-
-    switch (direction) {
-      // left
-      case "left":
-        if (fY > 0 && blockGrid[fX][fY - 1].traverser)
-          fY--; // ou y-=40;
-        break;
-        // right
-      case "right":
-        if (fX < H_GRID - 1 && blockGrid[fX + 1][fY].traverser)
-          fX++;
-        break;
-        // up
-      case "up":
-        if (fY < V_GRID - 1 && blockGrid[fX][fY + 1].traverser)
-          fY++;
-        break;
-        // down
-      case "down":
-        if (fX > 0 && blockGrid[fX - 1][fY].traverser)
-          fX--;
-        break;
-    }
-
-    fs.marginLeft = String(fX * GRID_SIZE ) + 'px';
-    fs.marginTop = String(fY * GRID_SIZE ) + 'px';
-
-    let random = random100();
-    if (random < 25) {
-      direction = "left";
-    }
-    if (random >= 25 && random < 50) {
-      direction = "right";
-    }
-    if (random >= 50 && random < 75) {
-      direction = "up";
-    }
-    if (random > 75) {
-      direction = "down";
-      console.log(setInterval);
-    }
-      frame = 0;
-    }
-    frame++;
-    window.requestAnimationFrame(loop);
-    console.log(loop);
-
-  
-}
-  // 60 x / seconde
-
-window.requestAnimationFrame(loop);
-
-// // //mouvement joueur
 
 document.onkeydown = function(event) {
   var event = event || window.event,
@@ -192,6 +118,87 @@ document.onkeydown = function(event) {
   s.left = String(x * GRID_SIZE) + 'px';
   s.top = String(y * GRID_SIZE) + 'px';
 }
+
+
+// const FOE = document.querySelectorAll('.foe');
+// // console.log(FOE.length);
+//
+// function movement(){
+//
+//   for (var i=0; i<FOE.length;i++) {
+//
+//     // if(fX == foe[i].offsetLeft && fY == foe[i].offsetTop){
+//     let counter = 0,
+//     n=10;
+//
+//     while(counter < n){
+//
+//   counter++;
+//
+//   fX = FOE[i].left;
+//   fY = FOE[i].top;
+//   // console.log(fX,fY);
+//
+//   switch (Math.floor(Math.random() * 4)) {
+//
+//     // left
+//     case 0:
+//       if (fY > 0 && blockGrid[fX][fY - 1].traverser)
+//         fY--; // ou y-=40;
+//         console.log("up",fY);
+//       break;
+//       // right
+//     case 1:
+//       if (fX < H_GRID - 1 && blockGrid[fX + 1][fY].traverser)
+//         fX++;
+//         console.log("right",fX);
+//       break;
+//       // up
+//     case 2:
+//       if (fY < V_GRID - 1 && blockGrid[fX][fY + 1].traverser)
+//         fY++;
+//         console.log("down",fY);
+//       break;
+//       // down
+//     case 3:
+//       if (fX > 0 && blockGrid[fX - 1][fY].traverser)
+//         fX--;
+//         console.log("left",fX);
+//       break;
+//
+//   }
+
+
+
+
+  // let random = random100();
+  // if (random < 25) {
+  //   direction = "left";
+  // }
+  // if (random >= 25 && random < 50) {
+  //   direction = "right";
+  // }
+  // if (random >= 50 && random < 75) {
+  //   direction = "up";
+  // }
+  // if (random > 75) {
+  //   direction = "down";
+  //
+  // }
+//   FOE[i].style.offsetLeft = String(fX* GRID_SIZE) + 'px';
+//   FOE[i].style.offsetTop = String(fY* GRID_SIZE) + 'px';
+//   // console.log("position : " ,FOE[i].offsetLeft,FOE[i].offsetTop);
+//
+// }
+//
+// }
+// let callMovement = setTimeout(movement,1000);
+// // setInterval(movement(),1000);
+//
+// }
+// movement();
+
+
 
 
 function random100() {

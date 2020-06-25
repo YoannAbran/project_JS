@@ -33,23 +33,23 @@
 // }
 //   }
 
-// for (var i = 0; i <5; i++) {
-//
-// let foe = document.createElement('div');
-// // foe.id= "foe"+ String(i);
-// fs = foe.style;
-// fs.width = GRID_SIZE +'px';
-// fs.height = GRID_SIZE +'px';
-// fs.position = 'absolute';
-// fs.zIndex ='1';
-// fs.backgroundColor='aqua'
-// fX = foe.offsetLeft;
-// fY = foe.offsetTop;
-// direction = "right";
-// document.getElementById("plateau").appendChild(foe);
-//
+for (var i = 0; i <5; i++) {
+
+let foe = document.createElement('div');
+// foe.id= "foe"+ String(i);
+fs = foe.style;
+fs.width = GRID_SIZE +'px';
+fs.height = GRID_SIZE +'px';
+fs.position = 'absolute';
+fs.zIndex ='1';
+fs.backgroundColor='aqua'
+fX = foe.offsetLeft;
+fY = foe.offsetTop;
+direction = "right";
+document.getElementById("plateau").appendChild(foe);
+
 // console.log(foe);
-// }
+}
 
 
   // var frame = 0; //method window.requestAnimationFrame
@@ -84,8 +84,8 @@
           break;
       }
 
-      fs.marginLeft = String(fX * GRID_SIZE ) + 'px';
-      fs.marginTop = String(fY * GRID_SIZE ) + 'px';
+      fs.left = String(fX * GRID_SIZE ) + 'px';
+      fs.top = String(fY * GRID_SIZE ) + 'px';
 
       let random = random100();
       if (random < 25) {
@@ -101,7 +101,7 @@
         direction = "down";
         console.log(setInterval);
       }
-    }, 100);
+    }, 1000);
 
 
     //   frame = 0;
