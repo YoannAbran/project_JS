@@ -224,3 +224,57 @@ setInterval(() => {   //method setInterval
   });
 movementfoe();
 }
+function movement() {
+
+  for (var i = 0; i < foes.length; i++) {
+
+    let counter = 0,
+      n = 1;
+    while (counter < n) {
+
+
+
+      let  fX = foes[i].offsetLeft;
+        fY = foes[i].offsetTop;
+
+
+
+      switch (Math.floor(Math.random() * 4)) {
+
+        // left
+        case 0:
+            fY--; // ou y-=40;
+
+          break;
+          // right
+        case 1:
+            fX++;
+
+          break;
+          // up
+        case 2:
+            fY++;
+
+          break;
+          // down
+        case 3:
+            fX--;
+
+          break;
+
+      }
+
+
+
+      foes[i].style.left = String(fX+GRID_SIZE) + 'px';
+      foes[i].style.top = String(fY+GRID_SIZE) + 'px';
+      console.log("position : " ,foes[i].offsetLeft,foes[i].offsetTop);
+      counter++;
+    }
+
+  }
+  let callMovement = setTimeout(movement, 1000);
+  // setInterval(movement(),1000);
+
+}
+movement();
