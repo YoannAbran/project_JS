@@ -2,7 +2,7 @@
 var foes = []
 
 for (var i = 0; i < 5; i++) {
-  let foe = document.createElement('div');
+  var foe = document.createElement('div');
 
 let x = 0;
 let y = 0;
@@ -18,13 +18,13 @@ blockGrid[x][y].traverser = false;
   foe.style.width = "40px";
   foe.style.height = "40px";
   foe.style.position = "absolute";
-  foe.style.backgroundColor = "aqua";
+  foe.style.backgroundImage = "url(img/foe.png)";
   foe.style.left = String(foe.foeX * GRID_SIZE) + "px";
   foe.style.top = String(foe.foeY * GRID_SIZE) + "px";
   foe.style.zIndex = "1";
   plateau.appendChild(foe);
-
-  foes.push(foe)
+  foe.id = 'foe'+String(i);
+  foes.push(foe);
 }
 
 
@@ -44,21 +44,25 @@ let stop = false;
         case 0:
           if (foeY > 0 && blockGrid[foeX][foeY - 1].traverser)
             foeY--;
+              startAnimationFoehaut();
           break;
 
         case 1:
           if (foeX < H_GRID - 1 && blockGrid[foeX + 1][foeY].traverser)
             foeX++;
+            startAnimationFoegauche();
           break;
 
         case 2:
           if (foeY < V_GRID - 1 && blockGrid[foeX][foeY + 1].traverser)
             foeY++;
+            startAnimationFoebas();
           break;
 
         case 3:
           if (foeX > 0 && blockGrid[foeX - 1][foeY].traverser)
             foeX--;
+            startAnimationFoedroite();
           break;
       }
 
@@ -71,7 +75,7 @@ let stop = false;
       foe.foeY = foeY
 
       blockGrid[foeX][foeY].traverser = false ;
-      
+
     }
 
 

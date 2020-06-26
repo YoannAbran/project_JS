@@ -121,22 +121,22 @@ document.onkeydown = function(event) {
     case 32 :
       creatBomb();
 
-console.log("position :",x,y);
-console.log("pos",blockGrid[i][x],blockGrid[i][y]);
       break;
 }
-// }
+
   // Et enfin on applique les modifications :;
   s.left = String(x * GRID_SIZE) + 'px';
   s.top = String(y * GRID_SIZE) + 'px';
+
 }
 // document.onkeyup = function(event) {
 //   var event = event || window.event;
 //
 //
 // if (event.keyCode == keyCode){
-//
-// keyCode = false ;
+//   keyCode = false
+//  stopAnimation();}}
+// //  ;
 //
 // stopAnimation();
 //
