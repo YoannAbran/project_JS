@@ -26,12 +26,12 @@ blockGrid[x][y].traverser = false;
 
   foes.push(foe)
 }
-//blockGrid[10][10].style.backgroundColor = "blue";
+
 
 
 
 setInterval(() => {
-
+let stop = false;
     for (var i = 0; i < foes.length; i++) {
 
       let foe = foes[i];
@@ -61,7 +61,9 @@ setInterval(() => {
             foeX--;
           break;
       }
-      
+
+
+
       foe.style.left = String(foeX * GRID_SIZE) + 'px';
       foe.style.top = String(foeY * GRID_SIZE) + 'px';
 
@@ -69,6 +71,7 @@ setInterval(() => {
       foe.foeY = foeY
 
       blockGrid[foeX][foeY].traverser = false ;
+      
     }
 
 
