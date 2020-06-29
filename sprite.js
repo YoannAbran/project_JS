@@ -26,7 +26,11 @@ function startAnimationbas() {
     }
     //reset the position to show first sprite after the last one
   }, speed);
+<<<<<<< HEAD
 
+=======
+  setTimeout(stopAnimation, 400);
+>>>>>>> 46c7c30d7b3dc8bef1a14a9b59909f538691c293
 }
 
 
@@ -47,7 +51,11 @@ function startAnimationhaut() {
     }
     //reset the position to show first sprite after the last one
   }, speed);
+<<<<<<< HEAD
 
+=======
+  setTimeout(stopAnimation, 400);
+>>>>>>> 46c7c30d7b3dc8bef1a14a9b59909f538691c293
 }
 
 
@@ -68,7 +76,11 @@ function startAnimationgauche() {
     }
     //reset the position to show first sprite after the last one
   }, speed);
+<<<<<<< HEAD
 
+=======
+  setTimeout(stopAnimation, 400);
+>>>>>>> 46c7c30d7b3dc8bef1a14a9b59909f538691c293
 }
 
 function startAnimationdroite() {
@@ -88,7 +100,11 @@ function startAnimationdroite() {
     }
     //reset the position to show first sprite after the last one
   }, speed);
+<<<<<<< HEAD
 
+=======
+  setTimeout(stopAnimation, 400);
+>>>>>>> 46c7c30d7b3dc8bef1a14a9b59909f538691c293
 }
 
 

@@ -40,6 +40,7 @@ let stop = false;
        foeY = foe.foeY
       blockGrid[foeX][foeY].traverser = true ;
 
+<<<<<<< HEAD
       switch (Math.floor(Math.random() * 4)) {
 
         case 0:
@@ -66,6 +67,34 @@ let stop = false;
             startAnimationFoedroite();
           break;
       }
+=======
+      // switch (Math.floor(Math.random() * 4)) {
+      //
+      //   case 0:
+      //     if (foeY > 0 && blockGrid[foeX][foeY - 1].traverser)
+      //       foeY--;
+      //         startAnimationFoehaut();
+      //     break;
+      //
+      //   case 1:
+      //     if (foeX < H_GRID - 1 && blockGrid[foeX + 1][foeY].traverser)
+      //       foeX++;
+      //       startAnimationFoegauche();
+      //     break;
+      //
+      //   case 2:
+      //     if (foeY < V_GRID - 1 && blockGrid[foeX][foeY + 1].traverser)
+      //       foeY++;
+      //       startAnimationFoebas();
+      //     break;
+      //
+      //   case 3:
+      //     if (foeX > 0 && blockGrid[foeX - 1][foeY].traverser)
+      //       foeX--;
+      //       startAnimationFoedroite();
+      //     break;
+      // }
+>>>>>>> 46c7c30d7b3dc8bef1a14a9b59909f538691c293
 
 
 

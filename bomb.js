@@ -37,6 +37,7 @@ function creatBomb(){
     if (document.getElementById("bomb")) {
 
       for (var i = 0; i < bombs.length; i++) {
+<<<<<<< HEAD
 
 
             boomX = bomb.bombx;
@@ -44,6 +45,15 @@ function creatBomb(){
 
             blockGrid[boomX][boomY].destructible = false;
           
+=======
+          for (var i = 0; i < foes.length; i++) {
+        let foeX = foe.foeX,
+            foeY = foe.foeY,
+            boomX = bomb.bombx;
+            boomY = bomb.bomby;
+            blockGrid[foeX][foeY].destructible = false;
+            blockGrid[boomX][boomY].destructible = false;
+>>>>>>> 46c7c30d7b3dc8bef1a14a9b59909f538691c293
             blockGrid[boomX][boomY].traverser = true;
 
 if (boomX>0 && boomY>0 && boomX<V_GRID && boomY<H_GRID){
@@ -79,6 +89,7 @@ if (boomX>0 && boomY>0 && boomX<V_GRID && boomY<H_GRID){
     foes[i].traverser = true;
     console.log(foes[i].traverser);
   }
+<<<<<<< HEAD
     if (parseInt(bomb.style.left) - GRID_SIZE== foes[i].offsetLeft && parseInt(bomb.style.top) == foes[i].offsetTop) {
     console.log(bomb.style.left, bomb.style.top, foes[i].offsetLeft, foes[i].offsetTop);
     foes[i].remove();
@@ -101,6 +112,42 @@ if (boomX>0 && boomY>0 && boomX<V_GRID && boomY<H_GRID){
 
     }
 
+=======
+}
+// for (var i = 0; i < foes.length; i++) {
+//   let foeX = foe.foeX,
+//       foeY = foe.foeY,
+//       boomX = bomb.bombx,
+//       boomY = bomb.bomby;
+//
+//       if (blockGrid[boomX] == blockGrid[foeX] && blockGrid[boomY-1] == blockGrid[foeY-1])
+//     // document.getElementById("foe"+String(i)).remove();
+//       foes[i].remove();
+//       // console.log(boomY,boomX,foeX, foeY);
+//
+//
+//       if (blockGrid[boomX + 1] == blockGrid[foeX + 1] && blockGrid[boomY] == blockGrid[foeY])
+//   // document.getElementById("foe"+String(i)).remove();
+//       foes[i].remove();
+//       // console.log(boomY,boomX,foeX, foeY);
+//
+//
+//       if (blockGrid[boomX] == blockGrid[foeX] && blockGrid[boomY+1] == blockGrid[foeY+1])
+//   // document.getElementById("foe"+String(i)).remove();
+//       foes[i].remove();
+//       // console.log(boomY,boomX,foeX, foeY);
+//
+//
+//       if (blockGrid[boomX - 1] == blockGrid[foeX-1] && blockGrid[boomY] == blockGrid[foeY])
+//     // document.getElementById("foe"+String(i)).remove();
+//       foes[i].remove();
+//       // console.log(boomY,boomX,foeX, foeY);
+//
+//   //
+//
+// }
+  // foe.remove();
+>>>>>>> 46c7c30d7b3dc8bef1a14a9b59909f538691c293
   document.getElementById("bomb").remove();
 
   }
@@ -109,6 +156,7 @@ if (boomX>0 && boomY>0 && boomX<V_GRID && boomY<H_GRID){
 // function killFoe(){
 //   for (var i = 0; i < foes.length; i++) {
 //
+<<<<<<< HEAD
 //     if (parseInt(bomb.style.left)== foes[i].offsetLeft && parseInt(bomb.style.top) - GRID_SIZE == foes[i].offsetTop) {
 //     console.log(bomb.style.left, bomb.style.top, foes[i].offsetLeft, foes[i].offsetTop);
 //     foes[i].remove();
@@ -134,6 +182,13 @@ if (boomX>0 && boomY>0 && boomX<V_GRID && boomY<H_GRID){
 //     console.log(foes[i].traverser);
 //   }
 //
+=======
+//     if (parseInt(bombe.style.left) == vilainList[i].offsetLeft && parseInt(bombe.style.top) + GRID_SIZE == vilainList[i].offsetTop) {
+//     console.log(bombe.style.left, bombe.style.top, vilainList[i].offsetLeft, vilainList[i].offsetTop);
+//     vilainList[i].remove();
+//     vilainList[i].traverser = true;
+//     }
+>>>>>>> 46c7c30d7b3dc8bef1a14a9b59909f538691c293
 //
 //     }
 //   }
