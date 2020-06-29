@@ -109,8 +109,14 @@ if (boomX>0 && boomY>0 && boomX<V_GRID && boomY<H_GRID){
   }
   }
 
-function killFoe(){
-  for (var i = 0; i < foes.length; i++) {
-
-    }
-  }
+// function killFoe(){
+//   for (var i = 0; i < foes.length; i++) {
+//
+//     if (parseInt(bombe.style.left) == vilainList[i].offsetLeft && parseInt(bombe.style.top) + GRID_SIZE == vilainList[i].offsetTop) {
+//     console.log(bombe.style.left, bombe.style.top, vilainList[i].offsetLeft, vilainList[i].offsetTop);
+//     vilainList[i].remove();
+//     vilainList[i].traverser = true;
+//     }
+//
+//     }
+//   }
