@@ -11,7 +11,7 @@ function stopAnimationFoe() {
 
 for (var i = 0; i < foes.length; i++) {
 var spriteFoe = foes[i];
-  console.log(spriteFoe);
+  // console.log(spriteFoe);
 }
 
 function startAnimationFoebas() {

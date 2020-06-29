@@ -43,7 +43,7 @@ for (var i = 0; i < H_GRID; i++) {
     else if (random100() > 85 && blockGrid[0][0]) {
       block.style.backgroundImage = 'url(img/mur1.png)';
       block.traverser = false;
-      block.destructible = false;
+      block.destructible = true;
 }
     // else if (random100() > 98 && blockGrid[0][0]) {
     //   fs.backgroundColor='aqua';
@@ -56,7 +56,7 @@ for (var i = 0; i < H_GRID; i++) {
       block.style.backgroundImage = 'url(img/sol.png)';
       block.className = 'sol';
       block.traverser = true;
-      block.destructible = true;
+      block.destructible = false;
     }
 
     block.style.marginLeft = (i * GRID_SIZE).toString() + 'px';
