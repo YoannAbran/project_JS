@@ -12,7 +12,7 @@ function stopAnimation() {
 function startAnimationbas() {
   stopAnimation();
   var position = widthOfEachSprite; //start position for the image
-  const speed = 110; //in millisecond(ms)
+  const speed = 100; //in millisecond(ms)
   const diff = widthOfEachSprite; //difference between two sprites
 
   animationInterval = setInterval(() => {
@@ -26,13 +26,14 @@ function startAnimationbas() {
     }
     //reset the position to show first sprite after the last one
   }, speed);
+
 }
 
 
 function startAnimationhaut() {
   stopAnimation();
   var position = widthOfEachSprite; //start position for the image
-  const speed = 110; //in millisecond(ms)
+  const speed = 100; //in millisecond(ms)
   const diff = widthOfEachSprite; //difference between two sprites
 
   animationInterval = setInterval(() => {
@@ -46,13 +47,14 @@ function startAnimationhaut() {
     }
     //reset the position to show first sprite after the last one
   }, speed);
+
 }
 
 
 function startAnimationgauche() {
   stopAnimation();
   var position = widthOfEachSprite; //start position for the image
-  const speed = 110; //in millisecond(ms)
+  const speed = 100; //in millisecond(ms)
   const diff = widthOfEachSprite; //difference between two sprites
 
   animationInterval = setInterval(() => {
@@ -66,12 +68,13 @@ function startAnimationgauche() {
     }
     //reset the position to show first sprite after the last one
   }, speed);
+
 }
 
 function startAnimationdroite() {
   stopAnimation();
   var position = widthOfEachSprite; //start position for the image
-  const speed = 110; //in millisecond(ms)
+  const speed = 100; //in millisecond(ms)
   const diff = widthOfEachSprite; //difference between two sprites
 
   animationInterval = setInterval(() => {
@@ -85,6 +88,7 @@ function startAnimationdroite() {
     }
     //reset the position to show first sprite after the last one
   }, speed);
+
 }
 
 

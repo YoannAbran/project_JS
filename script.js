@@ -38,11 +38,12 @@ for (var i = 0; i < H_GRID; i++) {
  if (random100() > 90 && blockGrid[0][0] ) {
       block.className = "eau";
       block.traverser = false;
-
+      block.destructible = false;
     }
-    else if (random100() > 90 && blockGrid[0][0]) {
+    else if (random100() > 85 && blockGrid[0][0]) {
       block.style.backgroundImage = 'url(img/mur1.png)';
       block.traverser = false;
+      block.destructible = true;
 }
     // else if (random100() > 98 && blockGrid[0][0]) {
     //   fs.backgroundColor='aqua';
@@ -55,6 +56,7 @@ for (var i = 0; i < H_GRID; i++) {
       block.style.backgroundImage = 'url(img/sol.png)';
       block.className = 'sol';
       block.traverser = true;
+      block.destructible = false;
     }
 
     block.style.marginLeft = (i * GRID_SIZE).toString() + 'px';
@@ -73,132 +75,78 @@ for (var i = 0; i < H_GRID; i++) {
   }
 }
 
+var keyCode;
+
 document.onkeydown = function(event) {
-  var event = event || window.event,
+  var event = event || window.event;
+
+  // if(!keyCode){
+
     keyCode = event.keyCode;
 
   // On détecte l'événement puis selon la fleche, on incrémente ou décrément les variables globales de position, x et y.
   switch (keyCode) {
 
     case 38:
+    startAnimationhaut();
       if (y > 0 && blockGrid[x][y - 1].traverser)
       y--;
-      startAnimationhaut();
+
       break;
 
 
     case 40:
+    startAnimationbas();
       if (y < V_GRID - 1 && blockGrid[x][y + 1].traverser)
       y++;
-      startAnimationbas();
+
       break;
 
 
     case 37:
+    startAnimationdroite();
       if (x > 0 && blockGrid[x - 1][y].traverser)
       x--;
-      startAnimationdroite();
+
       break;
 
 
     case 39:
+    startAnimationgauche();
       if (x < H_GRID - 1 && blockGrid[x + 1][y].traverser)
       x++;
-      startAnimationgauche();
+
       break;
 
     case 32 :
       creatBomb();
-      break;
 
-  }
+      break;
+}
+
   // Et enfin on applique les modifications :;
   s.left = String(x * GRID_SIZE) + 'px';
   s.top = String(y * GRID_SIZE) + 'px';
+
 }
-
-
-// const FOE = document.querySelectorAll('.foe');
-// // console.log(FOE.length);
+// document.onkeyup = function(event) {
+//   var event = event || window.event;
 //
-// function movement(){
 //
-//   for (var i=0; i<FOE.length;i++) {
+// if (event.keyCode == keyCode){
+//   keyCode = false
+//  stopAnimation();}}
+// //  ;
 //
-//     // if(fX == foe[i].offsetLeft && fY == foe[i].offsetTop){
-//     let counter = 0,
-//     n=10;
+// stopAnimation();
 //
-//     while(counter < n){
-//
-//   counter++;
-//
-//   fX = FOE[i].left;
-//   fY = FOE[i].top;
-//   // console.log(fX,fY);
-//
-//   switch (Math.floor(Math.random() * 4)) {
-//
-//     // left
-//     case 0:
-//       if (fY > 0 && blockGrid[fX][fY - 1].traverser)
-//         fY--; // ou y-=40;
-//         console.log("up",fY);
-//       break;
-//       // right
-//     case 1:
-//       if (fX < H_GRID - 1 && blockGrid[fX + 1][fY].traverser)
-//         fX++;
-//         console.log("right",fX);
-//       break;
-//       // up
-//     case 2:
-//       if (fY < V_GRID - 1 && blockGrid[fX][fY + 1].traverser)
-//         fY++;
-//         console.log("down",fY);
-//       break;
-//       // down
-//     case 3:
-//       if (fX > 0 && blockGrid[fX - 1][fY].traverser)
-//         fX--;
-//         console.log("left",fX);
-//       break;
-//
-//   }
-
-
-
-
-  // let random = random100();
-  // if (random < 25) {
-  //   direction = "left";
-  // }
-  // if (random >= 25 && random < 50) {
-  //   direction = "right";
-  // }
-  // if (random >= 50 && random < 75) {
-  //   direction = "up";
-  // }
-  // if (random > 75) {
-  //   direction = "down";
-  //
-  // }
-//   FOE[i].style.offsetLeft = String(fX* GRID_SIZE) + 'px';
-//   FOE[i].style.offsetTop = String(fY* GRID_SIZE) + 'px';
-//   // console.log("position : " ,FOE[i].offsetLeft,FOE[i].offsetTop);
-//
+// // pion.stop(!0,!0);
 // }
 //
-// }
-// let callMovement = setTimeout(movement,1000);
-// // setInterval(movement(),1000);
+//
+//
 //
 // }
-// movement();
-
-
-
-
 function random100() {
   return Math.floor(Math.random() * 100);
 }
