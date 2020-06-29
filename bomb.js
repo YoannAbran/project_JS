@@ -26,6 +26,7 @@ function creatBomb(){
 
 
     setTimeout(disparitionBomb, 800);
+    // setTimeout(killFoe, 800);
     bomb.bombx = x ;
     bomb.bomby = y ;
 
@@ -36,44 +37,80 @@ function creatBomb(){
     if (document.getElementById("bomb")) {
 
       for (var i = 0; i < bombs.length; i++) {
-
-        let boomX = bomb.bombx;
+          for (var i = 0; i < foes.length; i++) {
+        let foeX = foe.foeX,
+            foeY = foe.foeY,
+            boomX = bomb.bombx;
             boomY = bomb.bomby;
+            blockGrid[foeX][foeY].destructible = false;
             blockGrid[boomX][boomY].destructible = false;
             blockGrid[boomX][boomY].traverser = true;
 
-            var boom = blockGrid[boomX][boomY];
+if (boomX>0 && boomY>0 && boomX<V_GRID && boomY<H_GRID){
 
-        if (boomY > 0 && blockGrid[boomX][boomY - 1].destructible)
-        blockGrid[boomX][boomY - 1].remove();
-        blockGrid[boomX][boomY-1].traverser = true;
-        console.log(boomY,boomX, boom);
+        if (blockGrid[boomX][boomY - 1].destructible)
+        blockGrid[boomX][boomY - 1].style.backgroundImage = 'url(img/sol.png)';
+        blockGrid[boomX][boomY - 1].traverser = true;
+        // console.log(boomY,boomX, boom);
 
-
-        if (boomY < H_GRID - 1 && blockGrid[boomX + 1][boomY].destructible)
-        blockGrid[boomX + 1][boomY].remove();
+        if (blockGrid[boomX + 1][boomY].destructible)
+        blockGrid[boomX + 1][boomY].style.backgroundImage = 'url(img/sol.png)';
         blockGrid[boomX + 1][boomY].traverser = true;
-        console.log(boomY,boomX, boom);
+        // console.log(boomY,boomX, boom);
 
-
-        if (boomY < V_GRID - 1 && blockGrid[boomX][boomY + 1].destructible )
-        blockGrid[boomX][boomY + 1].remove();
+        if (blockGrid[boomX][boomY + 1].destructible)
+        blockGrid[boomX][boomY + 1].style.backgroundImage = 'url(img/sol.png)';
         blockGrid[boomX][boomY + 1].traverser = true;
-        console.log(boomY,boomX, boom);
+        // console.log(boomY,boomX, boom);
 
-
-        if (boomX > 0 && blockGrid[boomX - 1][boomY].destructible)
-        blockGrid[boomX - 1][boomY].remove();
+        if (blockGrid[boomX - 1][boomY].destructible)
+        blockGrid[boomX - 1][boomY].style.backgroundImage = 'url(img/sol.png)';
         blockGrid[boomX - 1][boomY].traverser = true;
-
-        console.log(boomY,boomX, boom);
+        // console.log(boomY,boomX, boom);
 
     }
+  }
+}
+// for (var i = 0; i < foes.length; i++) {
+//   let foeX = foe.foeX,
+//       foeY = foe.foeY,
+//       boomX = bomb.bombx,
+//       boomY = bomb.bomby;
+//
+//       if (blockGrid[boomX] == blockGrid[foeX] && blockGrid[boomY-1] == blockGrid[foeY-1])
+//     // document.getElementById("foe"+String(i)).remove();
+//       foes[i].remove();
+//       // console.log(boomY,boomX,foeX, foeY);
+//
+//
+//       if (blockGrid[boomX + 1] == blockGrid[foeX + 1] && blockGrid[boomY] == blockGrid[foeY])
+//   // document.getElementById("foe"+String(i)).remove();
+//       foes[i].remove();
+//       // console.log(boomY,boomX,foeX, foeY);
+//
+//
+//       if (blockGrid[boomX] == blockGrid[foeX] && blockGrid[boomY+1] == blockGrid[foeY+1])
+//   // document.getElementById("foe"+String(i)).remove();
+//       foes[i].remove();
+//       // console.log(boomY,boomX,foeX, foeY);
+//
+//
+//       if (blockGrid[boomX - 1] == blockGrid[foeX-1] && blockGrid[boomY] == blockGrid[foeY])
+//     // document.getElementById("foe"+String(i)).remove();
+//       foes[i].remove();
+//       // console.log(boomY,boomX,foeX, foeY);
+//
+//   //
+//
+// }
+  // foe.remove();
   document.getElementById("bomb").remove();
+
   }
   }
-  // blockGrid.splice(blockGrid.indexOf(blockGrid[i]), 1);
 
+function killFoe(){
+  for (var i = 0; i < foes.length; i++) {
 
-
-  // blockGrid[boomX][boomY].traverser = false;
+    }
+  }
