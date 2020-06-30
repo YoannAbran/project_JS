@@ -12,7 +12,7 @@ function stopAnimationFoe() {
 for (var i = 0; i < foes.length; i++) {
 var spriteFoe = foes[i];
   // console.log(spriteFoe);
-}
+
 
 function startAnimationFoebas() {
   stopAnimationFoe();
@@ -21,8 +21,8 @@ function startAnimationFoebas() {
   const diff = widthOfEachFoe; //difference between two sprites
 
   animationIntervalFoe = setInterval(() => {
-    let foesprite = spriteFoe;
-   foesprite.style.backgroundPosition = `-${position}px 0px`;
+
+   spriteFoe.style.backgroundPosition = `-${position}px 0px`;
 
     if (position < widthOfSpriteFoe) {
       position = position + diff;
@@ -43,8 +43,8 @@ function startAnimationFoehaut() {
   const diff = widthOfEachFoe; //difference between two sprites
 
   animationIntervalFoe = setInterval(() => {
-    let foesprite = spriteFoe;
-  foesprite.style.backgroundPosition = `-${position}px 40px`;
+
+  spriteFoe.style.backgroundPosition = `-${position}px 40px`;
 
     if (position < widthOfSpriteFoe) {
       position = position + diff;
@@ -65,8 +65,8 @@ function startAnimationFoegauche() {
   const diff = widthOfEachFoe; //difference between two sprites
 
   animationIntervalFoe = setInterval(() => {
-    let foesprite = spriteFoe;
-   foesprite.style.backgroundPosition = `-${position}px 80px`;
+
+   spriteFoe.style.backgroundPosition = `-${position}px 80px`;
 
     if (position < widthOfSpriteFoe) {
       position = position + diff;
@@ -86,8 +86,8 @@ function startAnimationFoedroite() {
   const diff = widthOfEachFoe; //difference between two sprites
 
   animationIntervalFoe = setInterval(() => {
-    let foesprite = spriteFoe;
-   foesprite.style.backgroundPosition = `-${position}px 120px`;
+
+   spriteFoe.style.backgroundPosition = `-${position}px 120px`;
 
     if (position < widthOfSpriteFoe) {
       position = position + diff;
@@ -98,4 +98,5 @@ function startAnimationFoedroite() {
     //reset the position to show first sprite after the last one
   }, speed);
 
+}
 }

@@ -21,13 +21,6 @@ for (var i = 0; i < H_GRID; i++) {
 
   for (var j = 0; j < V_GRID; j++) {
 
-    // var foe = document.createElement('div');
-    // fs = foe.style;
-    // fs.width = GRID_SIZE +'px';
-    // fs.height = GRID_SIZE +'px';
-    // fs.position = 'absolute';
-    // fs.zIndex ='1';
-    // direction = "right";
 
     let block = document.createElement('div');
     block.style.width = '40px';
@@ -35,22 +28,19 @@ for (var i = 0; i < H_GRID; i++) {
     block.style.backgroundSize = 'contain';
     block.style.position = 'absolute';
 
- if (random100() > 90 && blockGrid[0][0] ) {
+ if (random100() > 90 && !(i >= 0 && i <= 1 && j >= 0 && j <= 1 || i >= (H_GRID - 2)  && i < H_GRID && j >= 0 && j <= 1 || i >= 0  && i <= 1 && j >= (V_GRID - 2) && j < V_GRID || i >= (H_GRID - 2) && i < H_GRID && j >= (V_GRID - 2) && j < V_GRID)) {
       block.className = "eau";
       block.traverser = false;
       block.destructible = false;
+
     }
-    else if (random100() > 85 && blockGrid[0][0]) {
+    else if (random100() > 85 && !(i >= 0 && i <= 1 && j >= 0 && j <= 1 || i >= (H_GRID - 2)  && i < H_GRID && j >= 0 && j <= 1 || i >= 0  && i <= 1 && j >= (V_GRID - 2) && j < V_GRID || i >= (H_GRID - 2) && i < H_GRID && j >= (V_GRID - 2) && j < V_GRID)) {
       block.style.backgroundImage = 'url(img/mur1.png)';
       block.traverser = false;
       block.destructible = true;
+          block.zIndex = 10;
+
 }
-    // else if (random100() > 98 && blockGrid[0][0]) {
-    //   fs.backgroundColor='aqua';
-    //   foe.className = 'foe';
-    //   foe.traverser = false;
-    //   console.log(foe);
-    // }
 
  else {
       block.style.backgroundImage = 'url(img/sol.png)';
@@ -62,13 +52,6 @@ for (var i = 0; i < H_GRID; i++) {
     block.style.marginLeft = (i * GRID_SIZE).toString() + 'px';
     block.style.marginTop = (j * GRID_SIZE).toString() + 'px';
 
-    // fs.marginTop = (j * GRID_SIZE).toString() + 'px';
-    // fs.marginLeft = (i * GRID_SIZE).toString() + 'px';
-
-
-
-    // document.getElementById("plateau").appendChild(foe);
-      // blockGrid[i].push(foe);
     document.getElementById("plateau").appendChild(block);
     blockGrid[i].push(block);
 
@@ -80,7 +63,7 @@ var keyCode;
 document.onkeydown = function(event) {
   var event = event || window.event;
 
-  // if(!keyCode){
+
 
     keyCode = event.keyCode;
 
@@ -120,7 +103,7 @@ document.onkeydown = function(event) {
 
     case 32 :
       creatBomb();
-
+      
       break;
 }
 
@@ -129,24 +112,7 @@ document.onkeydown = function(event) {
   s.top = String(y * GRID_SIZE) + 'px';
 
 }
-// document.onkeyup = function(event) {
-//   var event = event || window.event;
-//
-//
-// if (event.keyCode == keyCode){
-//   keyCode = false
-//  stopAnimation();}}
-// //  ;
-//
-// stopAnimation();
-//
-// // pion.stop(!0,!0);
-// }
-//
-//
-//
-//
-// }
+
 function random100() {
   return Math.floor(Math.random() * 100);
 }
