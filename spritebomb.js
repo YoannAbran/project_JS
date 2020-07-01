@@ -1,8 +1,8 @@
 var animationIntervalBomb;
 var spriteBomb = bomb;
-var widthOfSpriteBomb = 120;
+var widthOfSpriteBomb = 40;
 var widthOfEachBomb = 40;
-var heightOfSpriteBomb = 40;
+var heightOfSpriteBomb = 237;
 var heightOfEachBomb = 40;
 
 function stopAnimationBomb() {
@@ -11,18 +11,18 @@ function stopAnimationBomb() {
 
 function startAnimationBomb() {
   stopAnimationBomb();
-  var position = widthOfEachBomb; //start position for the image
-  const speed = 333; //in millisecond(ms)
-  const diff = widthOfEachBomb; //difference between two sprites
+  var position = heightOfEachBomb; //start position for the image
+  const speed = 100; //in millisecond(ms)
+  const diff = heightOfEachBomb; //difference between two sprites
 
   animationIntervalBomb = setInterval(() => {
-    spriteBomb.style.backgroundPosition = `-${position}px 0px`;
+    spriteBomb.style.backgroundPosition = `0px -${position}px `;
 
-    if (position < widthOfSpriteBomb) {
+    if (position < heightOfSpriteBomb) {
       position = position + diff;
     } else {
       //increment the position by the width of each sprite each time
-      position = widthOfEachBomb;
+      position = heightOfEachBomb;
     }
     //reset the position to show first sprite after the last one
   }, speed);

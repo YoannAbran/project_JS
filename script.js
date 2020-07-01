@@ -8,6 +8,8 @@ const WINDOW_HEIGHT = V_GRID * GRID_SIZE;
 var plateau = document.getElementById('plateau');
 plateau.style.width = WINDOW_WIDTH;
 plateau.style.height = WINDOW_HEIGHT;
+plateau.style.border = "50px solid";
+plateau.style.borderImage = "url('img/border.png') 40 round";
 
 var pion = document.getElementById('pion'),
   s = pion.style, // Un petit raccourci
@@ -28,22 +30,27 @@ for (var i = 0; i < H_GRID; i++) {
     block.style.backgroundSize = 'contain';
     block.style.position = 'absolute';
 
- if (random100() > 90 && !(i >= 0 && i <= 1 && j >= 0 && j <= 1 || i >= (H_GRID - 2)  && i < H_GRID && j >= 0 && j <= 1 || i >= 0  && i <= 1 && j >= (V_GRID - 2) && j < V_GRID || i >= (H_GRID - 2) && i < H_GRID && j >= (V_GRID - 2) && j < V_GRID)) {
-      block.className = "eau";
+    if (random100() > 90 && !(i >= 0 && i <= 1 && j >= 0 && j <= 1 || i >= (H_GRID - 2) && i < H_GRID && j >= 0 && j <= 1 || i >= 0 && i <= 1 && j >= (V_GRID - 2) && j < V_GRID || i >= (H_GRID - 2) && i < H_GRID && j >= (V_GRID - 2) && j < V_GRID)) {
+      block.style.backgroundImage = 'url(img/arbre.png)';
       block.traverser = false;
       block.destructible = false;
 
-    }
-    else if (random100() > 85 && !(i >= 0 && i <= 1 && j >= 0 && j <= 1 || i >= (H_GRID - 2)  && i < H_GRID && j >= 0 && j <= 1 || i >= 0  && i <= 1 && j >= (V_GRID - 2) && j < V_GRID || i >= (H_GRID - 2) && i < H_GRID && j >= (V_GRID - 2) && j < V_GRID)) {
-      block.style.backgroundImage = 'url(img/mur1.png)';
+    } else if (random100() > 90 && !(i >= 0 && i <= 1 && j >= 0 && j <= 1 || i >= (H_GRID - 2) && i < H_GRID && j >= 0 && j <= 1 || i >= 0 && i <= 1 && j >= (V_GRID - 2) && j < V_GRID || i >= (H_GRID - 2) && i < H_GRID && j >= (V_GRID - 2) && j < V_GRID)) {
+      block.style.backgroundImage = 'url(img/pierre.png)';
+      block.traverser = false;
+      block.destructible = false;
+
+    } else if (random100() > 85 && !(i >= 0 && i <= 1 && j >= 0 && j <= 1 || i >= (H_GRID - 2) && i < H_GRID && j >= 0 && j <= 1 || i >= 0 && i <= 1 && j >= (V_GRID - 2) && j < V_GRID || i >= (H_GRID - 2) && i < H_GRID && j >= (V_GRID - 2) && j < V_GRID)) {
+      block.style.backgroundImage = 'url(img/fleur.png)';
       block.traverser = false;
       block.destructible = true;
-          block.zIndex = 10;
 
-}
-
- else {
-      block.style.backgroundImage = 'url(img/sol.png)';
+    } else if (random100() > 85 && !(i >= 0 && i <= 1 && j >= 0 && j <= 1 || i >= (H_GRID - 2) && i < H_GRID && j >= 0 && j <= 1 || i >= 0 && i <= 1 && j >= (V_GRID - 2) && j < V_GRID || i >= (H_GRID - 2) && i < H_GRID && j >= (V_GRID - 2) && j < V_GRID)) {
+      block.style.backgroundImage = 'url(img/feuille.png)';
+      block.traverser = false;
+      block.destructible = true;
+    } else {
+      block.style.backgroundImage = 'url(img/sol1.png)';
       block.className = 'sol';
       block.traverser = true;
       block.destructible = false;
@@ -65,48 +72,48 @@ document.onkeydown = function(event) {
 
 
 
-    keyCode = event.keyCode;
+  keyCode = event.keyCode;
 
   // On détecte l'événement puis selon la fleche, on incrémente ou décrément les variables globales de position, x et y.
   switch (keyCode) {
 
     case 38:
-    startAnimationhaut();
+      startAnimationhaut();
       if (y > 0 && blockGrid[x][y - 1].traverser)
-      y--;
+        y--;
 
       break;
 
 
     case 40:
-    startAnimationbas();
+      startAnimationbas();
       if (y < V_GRID - 1 && blockGrid[x][y + 1].traverser)
-      y++;
+        y++;
 
       break;
 
 
     case 37:
-    startAnimationdroite();
+      startAnimationdroite();
       if (x > 0 && blockGrid[x - 1][y].traverser)
-      x--;
+        x--;
 
       break;
 
 
     case 39:
-    startAnimationgauche();
+      startAnimationgauche();
       if (x < H_GRID - 1 && blockGrid[x + 1][y].traverser)
-      x++;
+        x++;
 
       break;
 
-    case 32 :
+    case 32:
       creatBomb();
-      startAnimationBomb()
+      startAnimationBomb();
       break;
-}
-for (var i = 0; i < foes.length; i++) {
+  }
+  for (var i = 0; i < foes.length; i++) {
     if (x * GRID_SIZE == foes[i].offsetLeft && y * GRID_SIZE == foes[i].offsetTop) {
       console.log(x * GRID_SIZE, y * GRID_SIZE, foes[i].offsetLeft, foes[i].offsetTop);
       document.getElementById('pion').remove();
