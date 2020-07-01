@@ -11,7 +11,7 @@ x = Math.floor(Math.random() * (H_GRID))
 y = Math.floor(Math.random() * (V_GRID))
 }
 
-blockGrid[x][y].traverser = false;
+// blockGrid[x][y].traverser = false;
 
   foe.foeX = x;
   foe.foeY = y;
@@ -67,7 +67,13 @@ let stop = false;
             startAnimationFoedroite(foe);
           break;
       }
-
+      if (pion.offsetLeft == foeX * GRID_SIZE && pion.offsetTop == foeY * GRID_SIZE) {
+               console.log(x * GRID_SIZE, y * GRID_SIZE, foes[i].offsetLeft, foes[i].offsetTop);
+               document.getElementById('pion').remove();
+               alert("Game over !!");
+               document.location.reload(true);
+               break;
+             }
 
 
 
@@ -78,7 +84,7 @@ let stop = false;
       foe.foeX = foeX
       foe.foeY = foeY
 
-      blockGrid[foeX][foeY].traverser = false ;
+      blockGrid[foeX][foeY].traverser = true ;
 
     }
 

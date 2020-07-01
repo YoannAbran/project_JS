@@ -103,10 +103,18 @@ document.onkeydown = function(event) {
 
     case 32 :
       creatBomb();
-      
+      startAnimationBomb()
       break;
 }
-
+for (var i = 0; i < foes.length; i++) {
+    if (x * GRID_SIZE == foes[i].offsetLeft && y * GRID_SIZE == foes[i].offsetTop) {
+      console.log(x * GRID_SIZE, y * GRID_SIZE, foes[i].offsetLeft, foes[i].offsetTop);
+      document.getElementById('pion').remove();
+      alert("Game over !!");
+      document.location.reload(true);
+      break;
+    }
+  }
   // Et enfin on applique les modifications :;
   s.left = String(x * GRID_SIZE) + 'px';
   s.top = String(y * GRID_SIZE) + 'px';
