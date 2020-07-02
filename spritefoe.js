@@ -10,8 +10,6 @@ function stopAnimationFoe() {
 
 for (var i = 0; i < foes.length; i++) {
   var spriteFoe = foes[i];
-}
-
 
   function startAnimationFoebas() {
     stopAnimationFoe();
@@ -32,10 +30,11 @@ for (var i = 0; i < foes.length; i++) {
       //reset the position to show first sprite after the last one
     }, speed);
 
-
+}
   }
 
-
+  for (var i = 0; i < foes.length; i++) {
+    var spriteFoe = foes[i];
   function startAnimationFoehaut() {
     stopAnimationFoe();
     var position = widthOfEachFoe; //start position for the image
@@ -54,10 +53,11 @@ for (var i = 0; i < foes.length; i++) {
       }
       //reset the position to show first sprite after the last one
     }, speed);
-
+}
   }
 
-
+  for (var i = 0; i < foes.length; i++) {
+    var spriteFoe = foes[i];
   function startAnimationFoegauche() {
     stopAnimationFoe();
     var position = widthOfEachFoe; //start position for the image
@@ -76,9 +76,10 @@ for (var i = 0; i < foes.length; i++) {
       }
       //reset the position to show first sprite after the last one
     }, speed);
-
+}
   }
-
+  for (var i = 0; i < foes.length; i++) {
+    var spriteFoe = foes[i];
   function startAnimationFoedroite() {
     stopAnimationFoe();
     var position = widthOfEachFoe; //start position for the image
@@ -97,5 +98,5 @@ for (var i = 0; i < foes.length; i++) {
       }
       //reset the position to show first sprite after the last one
     }, speed);
-
+}
   }

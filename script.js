@@ -6,10 +6,10 @@ const WINDOW_HEIGHT = V_GRID * GRID_SIZE;
 
 
 var plateau = document.getElementById('plateau');
-plateau.style.width = WINDOW_WIDTH;
-plateau.style.height = WINDOW_HEIGHT;
-plateau.style.border = "50px solid";
-plateau.style.borderImage = "url('img/border.png') 40 round";
+plateau.style.width = WINDOW_WIDTH + "px";
+plateau.style.height = WINDOW_HEIGHT + "px";
+plateau.style.border = "20px solid";
+plateau.style.borderImage = "url('img/pokebor.png') 15 stretch";
 
 var pion = document.getElementById('pion'),
   s = pion.style, // Un petit raccourci
@@ -103,7 +103,7 @@ document.onkeydown = function(event) {
       startAnimationBomb();
       break;
   }
-  
+
   for (var i = 0; i < foes.length; i++) {
     if (x * GRID_SIZE == foes[i].offsetLeft && y * GRID_SIZE == foes[i].offsetTop) {
       console.log(x * GRID_SIZE, y * GRID_SIZE, foes[i].offsetLeft, foes[i].offsetTop);

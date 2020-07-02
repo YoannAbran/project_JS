@@ -1,22 +1,44 @@
-body {
-  background-color: #B8860B;
-  display: flex;
-  justify-content: center;
+@font-face {
+  font-family: 'Poke';
+  src: url('font/Pokemon Solid.ttf');
 }
 
-#plateau {
-  width: 800px;
+body {
+  font-family: 'Poke';
+  background-image: url(img/gba.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size :cover;
+  display: flex;
+    }
+
+.poke{
+  width : 400px;
   height: 800px;
+  margin-right:  400px;
+  margin-left:  100px;
+  text-align: center;
+  font-size: 20px;
+  color: #FA7609;
+  /* background-image: url(img/pokebor1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto; */
+}
+.poke h1 {
+  padding-top: 20px;
+}
+ul{
+  list-style-type: none;
+}
+li span {
+  font-weight: bolder;
+  font-size: 25px;
+}
+#plateau {
   position: relative;
 }
 
-/* #foe {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  background-color: aqua;
-  z-index: 1;
-} */
 #pion {
   position: absolute;
   height: 40px;

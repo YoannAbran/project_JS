@@ -77,4 +77,4 @@ setInterval(() => {
 
     blockGrid[foeX][foeY].traverser = true;
   }
-}, 5000);
+}, 1000);
