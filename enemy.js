@@ -40,25 +40,27 @@ setInterval(() => {
       case 0:
         if (foeY > 0 && blockGrid[foeX][foeY - 1].traverser)
           foeY--;
-        startAnimationFoehaut(foe);
+        startAnimationFoehaut(foes[i]);
         break;
 
       case 1:
         if (foeX < H_GRID - 1 && blockGrid[foeX + 1][foeY].traverser)
           foeX++;
-        startAnimationFoegauche(foe);
+        startAnimationFoegauche(foes[i]);
         break;
 
       case 2:
         if (foeY < V_GRID - 1 && blockGrid[foeX][foeY + 1].traverser)
           foeY++;
-        startAnimationFoebas(foe);
+
+        startAnimationFoebas(foes[i]);
+
         break;
 
       case 3:
         if (foeX > 0 && blockGrid[foeX - 1][foeY].traverser)
           foeX--;
-        startAnimationFoedroite(foe);
+        startAnimationFoedroite(foes[i]);
         break;
     }
     if (pion.offsetLeft == foeX * GRID_SIZE && pion.offsetTop == foeY * GRID_SIZE) {

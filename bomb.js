@@ -63,7 +63,6 @@ function disparitionBomb() {
       bomb.traverser = false;
 
 
-
       if (boomY > 0) {
         if (blockGrid[boomX][boomY - 1].destructible) {
           blockGrid[boomX][boomY - 1].style.backgroundImage = 'url(img/sol1.png)';
@@ -99,11 +98,6 @@ function disparitionBomb() {
         break;
         console.log(foes);
       }
-      // if (foes.length == 0) {
-      //   alert("Gagné !!");
-      //   document.location.reload(true);
-      //   return;
-      // }
 
       if (parseInt(bomb.style.left) - GRID_SIZE == foes[i].offsetLeft && parseInt(bomb.style.top) == foes[i].offsetTop) {
         foes[i].remove();
@@ -111,11 +105,7 @@ function disparitionBomb() {
         break;
         console.log(foes[i]);
       }
-      // if (foes.length == 0) {
-      //   alert("Gagné !!");
-      //   document.location.reload(true);
-      //   return;
-      // }
+
 
       if (parseInt(bomb.style.left) + GRID_SIZE == foes[i].offsetLeft && parseInt(bomb.style.top) == foes[i].offsetTop) {
         foes[i].remove();
@@ -123,11 +113,7 @@ function disparitionBomb() {
         break;
         console.log(foes[i]);
       }
-      // if (foes.length == 0) {
-      //   alert("Gagné !!");
-      //   document.location.reload(true);
-      //   return;
-      // }
+
 
       if (parseInt(bomb.style.left) == foes[i].offsetLeft && parseInt(bomb.style.top) + GRID_SIZE == foes[i].offsetTop) {
         foes[i].remove();
@@ -135,15 +121,11 @@ function disparitionBomb() {
         break;
         console.log(foes[i]);
       }
-      // if (foes.length == 0) {
-      //   alert("Gagné !!");
-      //   document.location.reload(true);
-      //   return;
-      // }
+
     }
 
     for (var i = 0; i < GRID_SIZE; i++) {
-      // Top
+
       if (parseInt(bomb.style.left) == parseInt(s.left) && parseInt(bomb.style.top) - GRID_SIZE == parseInt(s.top)) {
         document.getElementById('pion').remove();
         alert("Game over !!");
@@ -219,38 +201,31 @@ function disparitionBomb() {
 }
 
 function disparitionexplo0() {
-  if (document.getElementById("explosion0")){
-  explosion0.remove();
-}
+  if (document.getElementById("explosion0")) {
+    explosion0.remove();
+  }
 }
 
 function disparitionexplo1() {
-    if (document.getElementById("explosion1")){
-  explosion1.remove();
-}
+  if (document.getElementById("explosion1")) {
+    explosion1.remove();
+  }
 }
 
 function disparitionexplo2() {
-    if (document.getElementById("explosion2")){
-  explosion2.remove();
-}
+  if (document.getElementById("explosion2")) {
+    explosion2.remove();
+  }
 }
 
 function disparitionexplo3() {
-    if (document.getElementById("explosion3")){
-  explosion3.remove();
-}
+  if (document.getElementById("explosion3")) {
+    explosion3.remove();
+  }
 }
 
 function disparitionexplo4() {
-    if (document.getElementById("explosion4")){
-  explosion4.remove();
+  if (document.getElementById("explosion4")) {
+    explosion4.remove();
+  }
 }
-}
-// function disparitionexplo(){
-//   explosion0.remove();
-//   explosion1.remove();
-//   explosion2.remove();
-//   explosion3.remove();
-//   explosion4.remove();
-// }
