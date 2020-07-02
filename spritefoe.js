@@ -10,7 +10,7 @@ function stopAnimationFoe() {
 
 for (var i = 0; i < foes.length; i++) {
   var spriteFoe = foes[i];
-  // console.log(spriteFoe);
+}
 
 
   function startAnimationFoebas() {
@@ -31,6 +31,7 @@ for (var i = 0; i < foes.length; i++) {
       }
       //reset the position to show first sprite after the last one
     }, speed);
+
 
   }
 
@@ -98,4 +99,3 @@ for (var i = 0; i < foes.length; i++) {
     }, speed);
 
   }
-}

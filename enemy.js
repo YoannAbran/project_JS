@@ -10,8 +10,6 @@ for (var i = 0; i < 5; i++) {
     y = Math.floor(Math.random() * (V_GRID))
   }
 
-  // blockGrid[x][y].traverser = false;
-
   foe.foeX = x;
   foe.foeY = y;
   foe.style.width = "40px";
@@ -28,8 +26,6 @@ for (var i = 0; i < 5; i++) {
 }
 
 
-
-
 setInterval(() => {
   let stop = false;
   for (var i = 0; i < foes.length; i++) {
@@ -38,7 +34,6 @@ setInterval(() => {
     foeX = foe.foeX
     foeY = foe.foeY
     blockGrid[foeX][foeY].traverser = true;
-
 
     switch (Math.floor(Math.random() * 4)) {
 
@@ -74,9 +69,6 @@ setInterval(() => {
       break;
     }
 
-
-
-
     foe.style.left = String(foeX * GRID_SIZE) + 'px';
     foe.style.top = String(foeY * GRID_SIZE) + 'px';
 
@@ -84,8 +76,5 @@ setInterval(() => {
     foe.foeY = foeY
 
     blockGrid[foeX][foeY].traverser = true;
-
   }
-
-
-}, 500);
+}, 5000);

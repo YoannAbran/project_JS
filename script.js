@@ -16,7 +16,6 @@ var pion = document.getElementById('pion'),
   x = pion.offsetLeft, // On récupère la position absolue initiale.
   y = pion.offsetTop;
 
-
 var blockGrid = [];
 for (var i = 0; i < H_GRID; i++) {
   blockGrid.push([]);
@@ -70,8 +69,6 @@ var keyCode;
 document.onkeydown = function(event) {
   var event = event || window.event;
 
-
-
   keyCode = event.keyCode;
 
   // On détecte l'événement puis selon la fleche, on incrémente ou décrément les variables globales de position, x et y.
@@ -81,31 +78,24 @@ document.onkeydown = function(event) {
       startAnimationhaut();
       if (y > 0 && blockGrid[x][y - 1].traverser)
         y--;
-
       break;
-
 
     case 40:
       startAnimationbas();
       if (y < V_GRID - 1 && blockGrid[x][y + 1].traverser)
         y++;
-
       break;
-
 
     case 37:
       startAnimationdroite();
       if (x > 0 && blockGrid[x - 1][y].traverser)
         x--;
-
       break;
-
 
     case 39:
       startAnimationgauche();
       if (x < H_GRID - 1 && blockGrid[x + 1][y].traverser)
         x++;
-
       break;
 
     case 32:
@@ -113,6 +103,7 @@ document.onkeydown = function(event) {
       startAnimationBomb();
       break;
   }
+  
   for (var i = 0; i < foes.length; i++) {
     if (x * GRID_SIZE == foes[i].offsetLeft && y * GRID_SIZE == foes[i].offsetTop) {
       console.log(x * GRID_SIZE, y * GRID_SIZE, foes[i].offsetLeft, foes[i].offsetTop);
