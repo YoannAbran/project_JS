@@ -8,8 +8,10 @@ function stopAnimationFoe() {
   clearInterval(animationIntervalFoe);
 }
 
-for (var i = 0; i < foes.length; i++) {
-  var spriteFoe = foes[i];
+// for (var i = 0; i < foes.length; i++) {
+//   var spriteFoe = foes[i];
+// }
+
 
   function startAnimationFoebas() {
     stopAnimationFoe();
@@ -19,7 +21,7 @@ for (var i = 0; i < foes.length; i++) {
 
     animationIntervalFoe = setInterval(() => {
 
-      spriteFoe.style.backgroundPosition = `-${position}px 0px`;
+      foe.style.backgroundPosition = `-${position}px 0px`;
 
       if (position < widthOfSpriteFoe) {
         position = position + diff;
@@ -30,11 +32,10 @@ for (var i = 0; i < foes.length; i++) {
       //reset the position to show first sprite after the last one
     }, speed);
 
-}
+
   }
 
-  for (var i = 0; i < foes.length; i++) {
-    var spriteFoe = foes[i];
+
   function startAnimationFoehaut() {
     stopAnimationFoe();
     var position = widthOfEachFoe; //start position for the image
@@ -43,7 +44,7 @@ for (var i = 0; i < foes.length; i++) {
 
     animationIntervalFoe = setInterval(() => {
 
-      spriteFoe.style.backgroundPosition = `-${position}px 40px`;
+      foe.style.backgroundPosition = `-${position}px 40px`;
 
       if (position < widthOfSpriteFoe) {
         position = position + diff;
@@ -53,11 +54,10 @@ for (var i = 0; i < foes.length; i++) {
       }
       //reset the position to show first sprite after the last one
     }, speed);
-}
+
   }
 
-  for (var i = 0; i < foes.length; i++) {
-    var spriteFoe = foes[i];
+
   function startAnimationFoegauche() {
     stopAnimationFoe();
     var position = widthOfEachFoe; //start position for the image
@@ -66,7 +66,7 @@ for (var i = 0; i < foes.length; i++) {
 
     animationIntervalFoe = setInterval(() => {
 
-      spriteFoe.style.backgroundPosition = `-${position}px 80px`;
+      foe.style.backgroundPosition = `-${position}px 80px`;
 
       if (position < widthOfSpriteFoe) {
         position = position + diff;
@@ -76,10 +76,9 @@ for (var i = 0; i < foes.length; i++) {
       }
       //reset the position to show first sprite after the last one
     }, speed);
-}
+
   }
-  for (var i = 0; i < foes.length; i++) {
-    var spriteFoe = foes[i];
+
   function startAnimationFoedroite() {
     stopAnimationFoe();
     var position = widthOfEachFoe; //start position for the image
@@ -88,7 +87,7 @@ for (var i = 0; i < foes.length; i++) {
 
     animationIntervalFoe = setInterval(() => {
 
-      spriteFoe.style.backgroundPosition = `-${position}px 120px`;
+      foe.style.backgroundPosition = `-${position}px 120px`;
 
       if (position < widthOfSpriteFoe) {
         position = position + diff;
@@ -98,5 +97,5 @@ for (var i = 0; i < foes.length; i++) {
       }
       //reset the position to show first sprite after the last one
     }, speed);
-}
+
   }

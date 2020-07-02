@@ -1,6 +1,6 @@
 var foes = []
 
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < getRandomInt(); i++) {
   var foe = document.createElement('div');
 
   let x = 0;
@@ -27,10 +27,10 @@ for (var i = 0; i < 5; i++) {
 
 
 setInterval(() => {
-  let stop = false;
+  // let stop = false;
   for (var i = 0; i < foes.length; i++) {
 
-    let foe = foes[i];
+    var foe = foes[i];
     foeX = foe.foeX
     foeY = foe.foeY
     blockGrid[foeX][foeY].traverser = true;
@@ -78,3 +78,10 @@ setInterval(() => {
     blockGrid[foeX][foeY].traverser = true;
   }
 }, 1000);
+
+
+function getRandomInt(min, max) {
+  min = 3;
+  max = 15;
+  return Math.floor(Math.random() * (max - min)) + min;
+}
