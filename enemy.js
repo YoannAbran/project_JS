@@ -21,12 +21,14 @@ if (random100() > 50){
   foe.style.backgroundPosition = "center";
   foe.style.backgroundSize = "cover";
   foe.className = "tichon";
+  tichon = document.getElementsByClassName("tichon");
 }
 else {
   foe.style.backgroundImage = "url(img/bas2.gif)";
   foe.style.backgroundPosition = "center";
   foe.style.backgroundSize = "cover";
   foe.className = "raffl";
+  raffl = document.getElementsByClassName("raffl");
 
 }
   foe.style.left = String(foe.foeX * GRID_SIZE) + "px";
@@ -40,7 +42,7 @@ else {
 }
 
 
-if (document.getElementsByClassName("tichon")){
+console.log(tichon);
 setInterval(() => {
   // let stop = false;
   for (var i = 0; i < foes.length; i++) {
@@ -50,38 +52,52 @@ setInterval(() => {
     foeY = foe.foeY
     blockGrid[foeX][foeY].traverser = true;
 
+    tichon = document.getElementsByClassName("tichon");
+    raffl = document.getElementsByClassName("raffl");
+
+    for (var t = 0; t < tichon.length; t++) {
+      var tichon = tichon[t];
+    };
+    for (var r = 0; r < raffl.length; r++) {
+      var raffl = raffl[r];
+    };
 
     switch (Math.floor(Math.random() * 4)) {
 
       case 0:
-        if (foeY > 0 && blockGrid[foeX][foeY - 1].traverser){
-          foeY--;}
-            foe.style.backgroundImage = "url(img/haut.gif)";
+      if (foeY > 0 && blockGrid[foeX][foeY - 1].traverser)
+        foeY--;
+            tichon.style.backgroundImage = "url(img/haut.gif)"
+              raffl.style.backgroundImage = "url(img/haut2.gif)";
         break;
 
       case 1:
-        if (foeX < H_GRID - 1 && blockGrid[foeX + 1][foeY].traverser){
-          foeX++;}
-            foe.style.backgroundImage = "url(img/droite.gif)";
+      if (foeX < H_GRID - 1 && blockGrid[foeX + 1][foeY].traverser)
+        foeX++;
+            tichon.style.backgroundImage = "url(img/droite.gif)";
+            raffl.style.backgroundImage = "url(img/droite2.gif)";
         break;
 
       case 2:
-        if (foeY < V_GRID - 1 && blockGrid[foeX][foeY + 1].traverser){
-          foeY++;}
-            foe.style.backgroundImage = "url(img/bas.gif)";
+      if (foeY < V_GRID - 1 && blockGrid[foeX][foeY + 1].traverser)
+        foeY++;
+          tichon.style.backgroundImage = "url(img/bas.gif)";
+            raffl.style.backgroundImage = "url(img/bas2.gif)";
         break;
 
       case 3:
-        if (foeX > 0 && blockGrid[foeX - 1][foeY].traverser){
-          foeX--;}
-              foe.style.backgroundImage = "url(img/gauche.gif)";
+      if (foeX > 0 && blockGrid[foeX - 1][foeY].traverser)
+        foeX--;
+            tichon.style.backgroundImage = "url(img/gauche.gif)";
+              raffl.style.backgroundImage = "url(img/gauche2.gif)";
         break;
+
     }
 
     if (pion.offsetLeft == foeX * GRID_SIZE && pion.offsetTop == foeY * GRID_SIZE) {
       console.log(x * GRID_SIZE, y * GRID_SIZE, foes[i].offsetLeft, foes[i].offsetTop);
       document.getElementById('pion').remove();
-      setTimeout(gameOver,1000);
+      setTimeout(gameOver,500);
       break;
     }
 
@@ -92,66 +108,9 @@ setInterval(() => {
     foe.foeY = foeY
 
     blockGrid[foeX][foeY].traverser = true;
+
   }
-}, 2000);
-
-}
-
-else {
-    setInterval(() => {
-      // let stop = false;
-      for (var i = 0; i < foes.length; i++) {
-
-        var foe = foes[i];
-        foeX = foe.foeX
-        foeY = foe.foeY
-        blockGrid[foeX][foeY].traverser = true;
-
-
-        switch (Math.floor(Math.random() * 4)) {
-
-          case 0:
-            if (foeY > 0 && blockGrid[foeX][foeY - 1].traverser){
-              foeY--;}
-                foe.style.backgroundImage = "url(img/haut2.gif)";
-            break;
-
-          case 1:
-            if (foeX < H_GRID - 1 && blockGrid[foeX + 1][foeY].traverser){
-              foeX++;}
-                foe.style.backgroundImage = "url(img/droite2.gif)";
-            break;
-
-          case 2:
-            if (foeY < V_GRID - 1 && blockGrid[foeX][foeY + 1].traverser){
-              foeY++;}
-                foe.style.backgroundImage = "url(img/bas2.gif)";
-            break;
-
-          case 3:
-            if (foeX > 0 && blockGrid[foeX - 1][foeY].traverser){
-              foeX--;}
-                  foe.style.backgroundImage = "url(img/gauche2.gif)";
-            break;
-        }
-
-    if (pion.offsetLeft == foeX * GRID_SIZE && pion.offsetTop == foeY * GRID_SIZE) {
-      console.log(x * GRID_SIZE, y * GRID_SIZE, foes[i].offsetLeft, foes[i].offsetTop);
-      document.getElementById('pion').remove();
-      setTimeout(gameOver,1000);
-      break;
-    }
-
-    foe.style.left = String(foeX * GRID_SIZE) + 'px';
-    foe.style.top = String(foeY * GRID_SIZE) + 'px';
-
-    foe.foeX = foeX
-    foe.foeY = foeY
-
-    blockGrid[foeX][foeY].traverser = true;
-  }
-}, 2000);
-}
+}, 1000);
 
 
 function getRandomInt(min, max) {

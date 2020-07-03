@@ -128,23 +128,23 @@ function disparitionBomb() {
 
       if (boomX == x && boomY  == y- 1) {
         document.getElementById('pion').remove();
-          setTimeout(gameOver,1000);
+          setTimeout(gameOver,500);
       }
 
       if (boomX  == x- 1 && boomY == y) {
         document.getElementById('pion').remove();
-          setTimeout(gameOver,1000);
+          setTimeout(gameOver,500);
       }
 
       if (boomX == x + 1 && boomY == y) {
         document.getElementById('pion').remove();
-          setTimeout(gameOver,1000);
+          setTimeout(gameOver,500);
 
       }
 
       if (boomX == x && boomY == y + 1) {
         document.getElementById('pion').remove();
-          setTimeout(gameOver,1000);
+          setTimeout(gameOver,500);
 
       }
 
@@ -185,7 +185,7 @@ function disparitionBomb() {
   document.getElementById("bomb").remove();
   blockGrid[boomX][boomY].traverser = true;
 
-  setTimeout(victory,1000)
+  setTimeout(victory,500)
 }
 
 function disparitionexplo0() {
@@ -217,14 +217,8 @@ function disparitionexplo4() {
     explosion4.remove();
   }
 }
-function gameOver(){
-  alert("Game over !!");
-  document.location.reload(true);
-}
-function victory(){
-  alert("Gagné !!");
-  document.location.reload(true);
-}
+
+
 function gameOver() {
   alert("Game over !!");
   document.location.reload(true);

@@ -108,8 +108,7 @@ document.onkeydown = function(event) {
     if (x * GRID_SIZE == foes[i].offsetLeft && y * GRID_SIZE == foes[i].offsetTop) {
       console.log(x * GRID_SIZE, y * GRID_SIZE, foes[i].offsetLeft, foes[i].offsetTop);
       document.getElementById('pion').remove();
-      alert("Game over !!");
-      document.location.reload(true);
+      setTimeout(gameOver,500);
       break;
     }
   }
