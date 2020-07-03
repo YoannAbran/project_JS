@@ -124,37 +124,29 @@ function disparitionBomb() {
 
     }
 
-    for (var i = 0; i < GRID_SIZE; i++) {
 
-      if (parseInt(bomb.style.left) == parseInt(s.left) && parseInt(bomb.style.top) - GRID_SIZE == parseInt(s.top)) {
+
+      if (boomX == x && boomY  == y- 1) {
         document.getElementById('pion').remove();
-        alert("Game over !!");
-        document.location.reload(true);
-        break;
+          setTimeout(gameOver,1000);
       }
 
-      if (parseInt(bomb.style.left) - GRID_SIZE == parseInt(s.left) && parseInt(bomb.style.top) == parseInt(s.top)) {
+      if (boomX  == x- 1 && boomY == y) {
         document.getElementById('pion').remove();
-        alert("Game over !!");
-        document.location.reload(true);
-        break;
+          setTimeout(gameOver,1000);
       }
 
-      if (parseInt(bomb.style.left) + GRID_SIZE == parseInt(s.left) && parseInt(bomb.style.top) == parseInt(s.top)) {
+      if (boomX == x + 1 && boomY == y) {
         document.getElementById('pion').remove();
-        alert("Game over !!");
-        document.location.reload(true);
-        break;
+          setTimeout(gameOver,1000);
+
       }
 
-      if (parseInt(bomb.style.left) == parseInt(s.left) && parseInt(bomb.style.top) + GRID_SIZE == parseInt(s.top)) {
+      if (boomX == x && boomY == y + 1) {
         document.getElementById('pion').remove();
-        alert("Game over !!");
-        document.location.reload(true);
-        break;
-      }
+          setTimeout(gameOver,1000);
 
-    }
+      }
 
     if (boomY > 0) {
       var explosion0 = explosions[0];
@@ -193,11 +185,7 @@ function disparitionBomb() {
   document.getElementById("bomb").remove();
   blockGrid[boomX][boomY].traverser = true;
 
-  if (foes.length == 0) {
-    alert("Gagné !!");
-    document.location.reload(true);
-    return;
-  }
+  setTimeout(victory,1000)
 }
 
 function disparitionexplo0() {
@@ -227,5 +215,24 @@ function disparitionexplo3() {
 function disparitionexplo4() {
   if (document.getElementById("explosion4")) {
     explosion4.remove();
+  }
+}
+function gameOver(){
+  alert("Game over !!");
+  document.location.reload(true);
+}
+function victory(){
+  alert("Gagné !!");
+  document.location.reload(true);
+}
+function gameOver() {
+  alert("Game over !!");
+  document.location.reload(true);
+}
+function victory(){
+  if (foes.length == 0) {
+    alert("Gagné !!");
+    document.location.reload(true);
+    return;
   }
 }

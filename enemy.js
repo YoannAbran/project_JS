@@ -1,6 +1,6 @@
 var foes = []
 
-for (var i = 0; i < getRandomInt(); i++) {
+for (var i = 0; i <getRandomInt() ; i++) {
   var foe = document.createElement('div');
 
   let x = 0;
@@ -15,17 +15,32 @@ for (var i = 0; i < getRandomInt(); i++) {
   foe.style.width = "40px";
   foe.style.height = "40px";
   foe.style.position = "absolute";
-  foe.style.backgroundImage = "url(img/foe.png)";
+
+if (random100() > 50){
+  foe.style.backgroundImage = "url(img/bas.gif)";
+  foe.style.backgroundPosition = "center";
+  foe.style.backgroundSize = "cover";
+  foe.className = "tichon";
+}
+else {
+  foe.style.backgroundImage = "url(img/bas2.gif)";
+  foe.style.backgroundPosition = "center";
+  foe.style.backgroundSize = "cover";
+  foe.className = "raffl";
+
+}
   foe.style.left = String(foe.foeX * GRID_SIZE) + "px";
   foe.style.top = String(foe.foeY * GRID_SIZE) + "px";
   foe.style.zIndex = "1";
   foe.destructible = true;
+
   plateau.appendChild(foe);
   foe.id = 'foe' + String(i);
   foes.push(foe);
 }
 
 
+if (document.getElementsByClassName("tichon")){
 setInterval(() => {
   // let stop = false;
   for (var i = 0; i < foes.length; i++) {
@@ -35,39 +50,38 @@ setInterval(() => {
     foeY = foe.foeY
     blockGrid[foeX][foeY].traverser = true;
 
+
     switch (Math.floor(Math.random() * 4)) {
 
       case 0:
-        if (foeY > 0 && blockGrid[foeX][foeY - 1].traverser)
-          foeY--;
-        startAnimationFoehaut(foes[i]);
+        if (foeY > 0 && blockGrid[foeX][foeY - 1].traverser){
+          foeY--;}
+            foe.style.backgroundImage = "url(img/haut.gif)";
         break;
 
       case 1:
-        if (foeX < H_GRID - 1 && blockGrid[foeX + 1][foeY].traverser)
-          foeX++;
-        startAnimationFoegauche(foes[i]);
+        if (foeX < H_GRID - 1 && blockGrid[foeX + 1][foeY].traverser){
+          foeX++;}
+            foe.style.backgroundImage = "url(img/droite.gif)";
         break;
 
       case 2:
-        if (foeY < V_GRID - 1 && blockGrid[foeX][foeY + 1].traverser)
-          foeY++;
-
-        startAnimationFoebas(foes[i]);
-
+        if (foeY < V_GRID - 1 && blockGrid[foeX][foeY + 1].traverser){
+          foeY++;}
+            foe.style.backgroundImage = "url(img/bas.gif)";
         break;
 
       case 3:
-        if (foeX > 0 && blockGrid[foeX - 1][foeY].traverser)
-          foeX--;
-        startAnimationFoedroite(foes[i]);
+        if (foeX > 0 && blockGrid[foeX - 1][foeY].traverser){
+          foeX--;}
+              foe.style.backgroundImage = "url(img/gauche.gif)";
         break;
     }
+
     if (pion.offsetLeft == foeX * GRID_SIZE && pion.offsetTop == foeY * GRID_SIZE) {
       console.log(x * GRID_SIZE, y * GRID_SIZE, foes[i].offsetLeft, foes[i].offsetTop);
       document.getElementById('pion').remove();
-      alert("Game over !!");
-      document.location.reload(true);
+      setTimeout(gameOver,1000);
       break;
     }
 
@@ -79,7 +93,65 @@ setInterval(() => {
 
     blockGrid[foeX][foeY].traverser = true;
   }
-}, 1000);
+}, 2000);
+
+}
+
+else {
+    setInterval(() => {
+      // let stop = false;
+      for (var i = 0; i < foes.length; i++) {
+
+        var foe = foes[i];
+        foeX = foe.foeX
+        foeY = foe.foeY
+        blockGrid[foeX][foeY].traverser = true;
+
+
+        switch (Math.floor(Math.random() * 4)) {
+
+          case 0:
+            if (foeY > 0 && blockGrid[foeX][foeY - 1].traverser){
+              foeY--;}
+                foe.style.backgroundImage = "url(img/haut2.gif)";
+            break;
+
+          case 1:
+            if (foeX < H_GRID - 1 && blockGrid[foeX + 1][foeY].traverser){
+              foeX++;}
+                foe.style.backgroundImage = "url(img/droite2.gif)";
+            break;
+
+          case 2:
+            if (foeY < V_GRID - 1 && blockGrid[foeX][foeY + 1].traverser){
+              foeY++;}
+                foe.style.backgroundImage = "url(img/bas2.gif)";
+            break;
+
+          case 3:
+            if (foeX > 0 && blockGrid[foeX - 1][foeY].traverser){
+              foeX--;}
+                  foe.style.backgroundImage = "url(img/gauche2.gif)";
+            break;
+        }
+
+    if (pion.offsetLeft == foeX * GRID_SIZE && pion.offsetTop == foeY * GRID_SIZE) {
+      console.log(x * GRID_SIZE, y * GRID_SIZE, foes[i].offsetLeft, foes[i].offsetTop);
+      document.getElementById('pion').remove();
+      setTimeout(gameOver,1000);
+      break;
+    }
+
+    foe.style.left = String(foeX * GRID_SIZE) + 'px';
+    foe.style.top = String(foeY * GRID_SIZE) + 'px';
+
+    foe.foeX = foeX
+    foe.foeY = foeY
+
+    blockGrid[foeX][foeY].traverser = true;
+  }
+}, 2000);
+}
 
 
 function getRandomInt(min, max) {
